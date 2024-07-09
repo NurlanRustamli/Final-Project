@@ -1,0 +1,455 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: inherit;
+    overflow-x: hidden;
+}
+
+a {
+    color: rgb(119 119 119);
+}
+
+a:hover {
+    color: rgb(92 175 144);
+}
+
+#first-sec {
+    padding-block: 10px;
+    color: rgb(119 119 119);
+    background-color: rgb(248 248 251);
+    font-size: 13px;
+}
+
+.fs-contact {
+    display: flex;
+    gap: 10px;
+    letter-spacing: 0.02rem;
+}
+
+.fs-others {
+    display: flex;
+    justify-content: right;
+}
+
+.fs-others div {
+    display: inline-block;
+    padding-left: 20px;
+    font-size: 14px;
+    letter-spacing: 0.7;
+}
+
+.fs-lang-name,
+.fs-exchange {
+    position: relative;
+    height: fit-content;
+
+}
+
+.fs-lang-name ul,
+.fs-exchange ul {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid rgb(238 238 238);
+    width: 100px;
+    padding-inline: 10px;
+    visibility: hidden;
+    opacity: 0;
+    right: 0;
+    top: 32px;
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.1);
+    transition: all .3s ease;
+}
+
+.fs-lang-name:hover ul {
+    z-index: 99;
+    visibility: visible;
+    opacity: 1;
+}
+
+.fs-exchange ul li,
+.fs-lang-name ul li {
+    line-height: 1.5;
+    padding-block: 5px;
+    border-bottom: 1px solid rgb(238 238 238);
+
+}
+
+.fs-exchange:hover ul {
+    z-index: 99;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* second section */
+#second-sec {
+    padding-block: 30px;
+}
+
+#second-sec .row {
+    justify-content: space-between;
+}
+
+.ss-logo {
+    width: 144px;
+}
+
+.ss-input input {
+
+    font-size: 13px;
+    padding-inline: 15px;
+    width: 100%;
+    min-height: 50px;
+    outline: 0;
+    border: 0;
+}
+
+.ss-input form {
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ss-input form button {
+    width: 48px;
+    height: 40px;
+    position: absolute;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    right: 0;
+}
+
+.ss-others {
+    display: flex;
+
+}
+
+.ss-login,
+.ss-wish,
+.ss-cart {
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    position: relative;
+    transition: .3s all ease;
+}
+
+.ss-icon {
+    font-size: 28px;
+    line-height: 17px;
+    padding-inline: 10px;
+    transition: all ease .3s;
+
+}
+
+.ss-info p:first-child {
+    color: rgb(119 119 119);
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    transition: all ease .3s;
+}
+
+.ss-info div {
+    font-size: 13px;
+    line-height: 14px;
+    /* position: relative; */
+}
+
+.ss-login:hover .ss-icon,
+.ss-login:hover .ss-info>p:first-child,
+.ss-wish:hover .ss-icon,
+.ss-wish:hover .ss-info>p:first-child,
+.ss-cart:hover .ss-icon,
+.ss-cart:hover .ss-info>p:first-child {
+    color: rgb(92 175 144);
+}
+
+.ss-login ul {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid rgb(238 238 238);
+    border-radius: 5px;
+    width: 140px;
+    padding-inline: 10px;
+    padding-block: 5px;
+    visibility: hidden;
+    opacity: 0;
+    /* right: auto; */
+    top: 55px;
+    left: 0px;
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.1);
+    transition: all .3s ease;
+    z-index: 10;
+}
+
+.ss-login ul li {
+    letter-spacing: 0.02rem;
+    transition: all ease .3s;
+}
+
+.ss-login ul a {
+    color: rgb(119 119 119);
+    width: 100%;
+    display: block;
+    font-size: 13px;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.ss-login:hover ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+.ss-login ul li:hover a {
+    color: rgb(92 175 144);
+}
+
+/* login i basandan sonra gelen hissede niye iconun altindan baslamir.ve icindeki hisse cox kicik saheye malikdir,yazilar soldan baslamir */
+/* fourth section */
+
+.slider-img1 {
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-image: url();
+}
+
+.slider-img2 {
+    background-image: url();
+}
+
+/* fifth section */
+.fif-product-out {
+    padding-inline: 12px;
+}
+
+.fif-product {
+    position: relative;
+    /* background-color: rgb(255 246 236 ); */
+    padding: 15px;
+    width: 100%;
+}
+
+.fif-pr {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 15px;
+
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(88, 110, 125, 0.1);
+}
+
+.fif-pr i {
+    font-size: 40px;
+    color: rgb(92 175 144);
+    margin-block: 10px;
+    /* line-height: 0; */
+}
+
+.fif-pr h5 a {
+    line-height: 22px;
+    font-size: 15px;
+    color: rgb(75 89 102);
+    font-weight: 600;
+}
+
+.fif-pr p {
+    line-height: 28px;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.02rem;
+    color: rgb(119 119 119);
+}
+
+.fif-product::after {
+    content: "";
+    background-image: linear-gradient(360deg, #fff, #fff, transparent);
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.fif-pr span {
+    color: rgb(255 255 255);
+    background-color: rgb(92 175 144);
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    padding-inline: 5px;
+    font-weight: 600;
+}
+
+/* .fif-product::after:hover{
+    top: 50%;
+} */
+
+/* sixth section */
+#sixth-section {
+    padding-block: 40px;
+}
+
+.sixth-header {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.sixth-header h4 {
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(75 89 102);
+}
+
+.sixth-header h4 span {
+    color: rgb(92 175 144);
+}
+
+.sixth-header p {
+    color: rgb(119 119 119);
+    line-height: 18px;
+    font-size: 14px;
+    margin-top: 10px;
+    max-width: 400px;
+    font-weight: 300;
+}
+
+.six-product-out {
+    padding-inline: 12px;
+    height: 100%;
+}
+
+.six-product {
+    border: 1px solid rgb(238 238 238);
+    border-radius: 5px;
+}
+
+.six-img {
+    transition: all 0.3s ease 0s;
+    position: relative;
+    overflow: hidden;
+
+    img {
+        transition: .3s all ease;
+    }
+}
+
+.sale {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    padding: 5px 10px;
+    background: rgb(255 112 112);
+    border-radius: 5px;
+}
+
+.img-hover {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -10px;
+    opacity: 0;
+    z-index: 13;
+    visibility: hidden;
+    transition: all .3s ease;
+
+    .img-hover-icons {
+        border: 1px solid rgb(238, 238, 238);
+        border-radius: 5px;
+        margin-inline: 2px;
+        background-color: #fff;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+
+        &:hover {
+            background-color: #5caf90;
+            color: #fff;
+        }
+    }
+}
+
+.six-img:hover .img-hover {
+    opacity: 1;
+    visibility: visible;
+    bottom: 10px;
+}
+
+.six-img:hover img {
+    scale: 1.2;
+}
+
+.six-info {
+    padding: 20px;
+
+    a {
+        font-size: 12px;
+    }
+
+    h2 {
+        font-size: 16px;
+        margin-block: 10px;
+
+        a {
+            letter-spacing: 0.85px;
+            line-height: 22px;
+            font-size: 15px;
+            font-weight: 400;
+        }
+    }
+
+    .star-icon {
+        margin-bottom: 10px;
+
+        .fa-solid {
+            color: rgb(242 125 12);
+            padding-inline: 3px;
+            font-size: 14px;
+        }
+
+        .fa-regular {
+            padding-inline: 3px;
+            font-size: 14px;
+            color: rgb(119 119 119);
+        }
+    }
+
+    .price {
+        h3 {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .discount-number {
+            margin-right: 7px;
+            color: rgb(75 89 102);
+
+        }
+
+        .main-number {
+            color: rgb(119 119 119);
+            font-size: 14px;
+        }
+    }
+}

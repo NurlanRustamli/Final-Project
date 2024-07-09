@@ -1,0 +1,178 @@
+// [
+//     {
+//         "id": 1,
+//         "type": "Cookies",
+//         "name": "Multi Grain Combo Cookies",
+//         "rating": "3/5",
+//         "previousPrice": 30,
+//         "discountPrice": 25,
+//         "time": "new",
+//         "weight": 2,
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/3_1.jpg"
+//     },
+//     {
+//         "id": 2,
+//         "type": "Dried Fruits",
+//         "name": "Mixed Nuts Berries Pack",
+//         "rating": "4/5",
+//         "previousPrice": 56,
+//         "discountPrice": 45,
+//         "time": "old",
+//         "weight": 1,
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/6_1.jpg"
+//     },
+//     {
+//         "id": 3,
+//         "type": "Foods",
+//         "name": "Fresh Mango Juice Pack",
+//         "rating": "2/5",
+//         "previousPrice": 65,
+//         "discountPrice": 49,
+//         "time": "old",
+//         "weight": 3,
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/9_1.jpg"
+//     },
+//     {
+//         "id": 4,
+//         "type": "Dried Fruits",
+//         "name": "Dates Value Fresh Pouch",
+//         "rating": "4/5",
+//         "previousPrice": 56,
+//         "discountPrice": 45,
+//         "time": "old",
+//         "weight": 4,
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/2_1.jpg"
+//     },
+//     {
+//         "id": 5,
+//         "type": "Foods",
+//         "name": "Stick Fiber Masala Magic",
+//         "rating": "2/5",
+//         "previousPrice": 50,
+//         "discountPrice": 45,
+//         "time": "old",
+//         "weight": 1,
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/1_1.jpg"
+//     },
+//     {
+//         "id": 6,
+//         "type": "Tuber Root",
+//         "name": "Fresh Organic Ginger Pack",
+//         "rating": "3/5",
+//         "previousPrice": 3,
+//         "discountPrice": 2,
+//         "time": "old",
+//         "weight": 2,
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/17_1.jpg"
+//     },
+//     {
+//         "id": 7,
+//         "type": "Fresh Fruit",
+//         "name": "Natural Hub Cherry Karonda",
+//         "rating": "4/5",
+//         "previousPrice": 56,
+//         "discountPrice": 45,
+//         "time": "old",
+//         "weight": 4,
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/24_1.jpg"
+//     },
+//     {
+//         "id": 8,
+//         "type": "Fresh Fruit",
+//         "name": "Fresh Lichi 500g Pack",
+//         "rating": "5/5",
+//         "previousPrice": 35,
+//         "discountPrice": 25,
+//         "time": "new",
+//         "weight": 3,
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/24_1.jpg"
+//     },
+//     {
+//         "id": 9,
+//         "type": "Snacks",
+//         "name": "Smoked Honey Spiced Nuts Almonds Pack",
+//         "rating": "4/5",
+//         "previousPrice": 56,
+//         "discountPrice": 45,
+//         "time": "new",
+//         "weight": 5,
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/8_1.jpg"
+//     },
+//     {
+//         "id": 10,
+//         "type": "Dried Fruits",
+//         "name": "Banana Chips Snack Crunchy",
+//         "rating": "5/5",
+//         "previousPrice": 50,
+//         "discountPrice": 45,
+//         "weight": 7,
+//         "time": "old",
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/4_1.jpg"
+//     },
+//     {
+//         "id": 11,
+//         "type": "Foods",
+//         "name": "Mixed Nuts & Almonds Dry Fruits",
+//         "rating": "4/5",
+//         "previousPrice": 65,
+//         "discountPrice": 49,
+//         "weight": 9,
+//         "time": "old",
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/9_1.jpg"
+//     },
+//     {
+//         "id": 12,
+//         "type": "Fresh Fruit",
+//         "name": "Farm Eggs",
+//         "rating": "1/5",
+//         "previousPrice": 5,
+//         "discountPrice": 3,
+//         "weight": 7,
+//         "time": "old",
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/19_1.jpg"
+//     },
+//     {
+//         "id": 13,
+//         "type": "Dried Fruits",
+//         "name": "Carrot & Brocoli Soup Mix Pack",
+//         "rating": "5/5",
+//         "previousPrice": 35,
+//         "discountPrice": 25,
+//         "weight": 2,
+//         "time": "new",
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/5_1.jpg"
+//     },
+//     {
+//         "id": 14,
+//         "type": "Tuber Root",
+//         "name": "Ginger Organic",
+//         "rating": "2/5",
+//         "previousPrice": 56,
+//         "discountPrice": 45,
+//         "weight": 4,
+//         "time": "old",
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/17_1.jpg"
+//     },
+//     {
+//         "id": 15,
+//         "type": "Dried Fruits",
+//         "name": "Healthy Nutmix",
+//         "rating": "4/5",
+//         "previousPrice": 45,
+//         "discountPrice": 42,
+//         "weight": 5,
+//         "time": "new",
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/10_1.jpg"
+//     },
+//     {
+//         "id": 16,
+//         "type": "Fresh Fruit",
+//         "name": "organic Fresh Tomato",
+//         "rating": "3/5",
+//         "previousPrice": 30,
+//         "discountPrice": 25,
+//         "weight": 2,
+//         "time": "new",
+//         "image":"https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/product-images/11_1.jpg"
+//     }
+// ]
