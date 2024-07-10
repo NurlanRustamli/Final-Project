@@ -222,6 +222,9 @@ a:hover {
 }
 
 /* fifth section */
+#fifth-section{
+    padding: 30px;
+}
 .fif-product-out {
     padding-inline: 12px;
 }

@@ -9,15 +9,15 @@ function Products() {
     useEffect(()=>{
     productsApi.getAllProduct().then(data=>setProducts(data),[])
     })
- const [currentPage, setCurrentPage] = useState(1)
- const [postsPerPage, setfirst] = useState(8)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postsPerPage, setfirst] = useState(8)
 
-
- const lastPostIndex = currentPage*postsPerPage
- const firstPostIndex = lastPostIndex-postsPerPage;
- const currentPosts =products.slice(firstPostIndex,lastPostIndex)
-  return (
-    <section id='sixth-section products'>
+    
+    const lastPostIndex = currentPage*postsPerPage
+    const firstPostIndex = lastPostIndex-postsPerPage;
+    const currentPosts =products.slice(firstPostIndex,lastPostIndex)
+    return (
+        <section id='sixth-section products'>
         <div className='container'>
             <div className="row sixth-header">
                 <div className=" section-heading  col-lg-12 col-xl-12 col-xs-12 col-sm-12 col-md-12 text-center">
@@ -28,13 +28,14 @@ function Products() {
             </div>
             <div className="row sixth-main">
             {
-            currentPosts.map(item=><div className=' six-product-out col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-6' key={item.id}>
+                currentPosts.map(item=><div className=' six-product-out col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-6' key={item.id}>
                 <ProductCard {...item} />
             </div>)
         }
         <Pagination totalPosts ={products.length} postsPerPage={postsPerPage}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}/>
+
             </div>
         
     </div>

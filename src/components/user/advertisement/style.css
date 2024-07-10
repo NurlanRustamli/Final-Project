@@ -1,0 +1,42 @@
+.advertisement {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.poster1 {
+    width: 80%;
+    position: relative;
+
+    .info {
+        text-align: right;
+        width: 40%;
+        position: absolute;
+        right: 3%;
+        top: 30%;
+
+        h2 {
+            font-size: 40px;
+        }
+
+        span {
+            color: rgb(49, 141, 84);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background-color: rgb(49, 141, 84);
+            &:hover{
+                color: rgb(49, 141, 84);
+                background-color: #fff;
+                border: 1px solid green;
+            }
+        }
+    }
+}

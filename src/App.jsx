@@ -14,6 +14,7 @@ import Search from './pages/user/search'
 import Login from './pages/user/login'
 import { Route, Routes } from 'react-router'
 import { productsApi } from './services/base.js'
+import Help from './components/user/help/index.jsx'
 
 
 function App() {
@@ -25,6 +26,7 @@ productsApi.getAllProduct()
           <Route element={<Home />} index />
           <Route element={<Detail />} path=':id' />
           <Route element={<Search />} path='search' />
+          <Route element={<Help />} path='help' />
           <Route element={<Contact />} path='contact' />
           <Route element={<Login />} path='login' />
         </Route>
