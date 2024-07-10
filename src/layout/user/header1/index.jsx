@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Header1() {
     return (
@@ -17,20 +18,19 @@ function Header1() {
                 </div>
                 <div className="fs-slogan col-xl-4 col-lg-4 col-md-4">World's Fastest Online Shopping Destination</div>
                 <div className="fs-others col-xl-4 col-lg-4 col-md-4">
-                    <div className="fs-help"><a href="#" className="fs-help">Help?</a></div>
-                    <div className="fs-track"><a href="#" className="fs-track">Track Order?</a></div>
+                    <div className="fs-help"><Link className="fs-help" to='/help'>Help?</Link></div>
                     <div className="fs-lang-name">
-                        <a href="#">English</a>
+                        <Link to="/">English</Link>
                         <ul>
-                            <li><a href>English</a></li>
-                            <li><a href>Italiano</a></li>
-                        </ul>
+                            <li><Link to='/'>English</Link></li>
+                            <li><Link to="/it">Italiano</Link></li>
+                      </ul>
                     </div>
                     <div className="fs-exchange">
-                        <a className="fs-e-a" href=" ">Dollar</a>
+                        <Link className="fs-e-a" >Dollar</Link>
                         <ul>
-                            <li><a href>USD $</a></li>
-                            <li><a href>EURO</a> </li>
+                            <li><Link to='/'>USD $</Link></li>
+                            <li><Link to='/euro'>EURO</Link> </li>
                         </ul>
                     </div>
                 </div>

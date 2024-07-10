@@ -13,11 +13,11 @@ import Dashboard from './pages/admin/dashboard'
 import Search from './pages/user/search'
 import Login from './pages/user/login'
 import { Route, Routes } from 'react-router'
-import { productApi } from './services/base'
+import { productsApi } from './services/base.js'
 
 
 function App() {
-productApi.getAllProduct()
+productsApi.getAllProduct()
   return (
     <>
       <Routes>
