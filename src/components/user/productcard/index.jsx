@@ -5,8 +5,17 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { FaCodeCompare } from "react-icons/fa6";
 import './style.css'
 import { Link } from 'react-router-dom';
+import {useDispatch} from 'react-redux'
+import { addToCartAction } from '../../../redux/actions/cartListAction';
 
-function ProductCard({id, rating, previousPrice, weight, discountPrice, time, image, name, type }) {
+function ProductCard(props) {
+let {id, rating, previousPrice, weight, discountPrice, time, image, name, type } = props.product
+
+const dispatch = useDispatch()
+  function addToCart() {
+    
+    dispatch(addToCartAction(props.product))
+  }
   return (
     <div className='six-product' id={time}>
 
@@ -16,7 +25,7 @@ function ProductCard({id, rating, previousPrice, weight, discountPrice, time, im
         <div className='sale new'>{time}</div>
         <div className="img-hover icons">
           <div className="img-hover-icons">
-            <BsCartPlusFill />
+            <BsCartPlusFill onClick={addToCart}/>
 
           </div>
           <div className="img-hover-icons">

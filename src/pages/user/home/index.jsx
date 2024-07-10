@@ -4,17 +4,19 @@ import Slider from '../../../components/user/slider'
 import Advertisement from '../../../components/user/advertisement'
 import TopItems from '../../../components/user/topitems'
 import Types from '../../../components/user/types'
+import Newsletter from '../../../components/user/newsletter'
 
 
 function Home() {
   return (
     <main>
-        <Slider/>
-        <Types/>
-        <Advertisement/>
-        <Products />
-        <TopItems/>
-        <Advertisement/>
+      <Newsletter />
+      <Slider />
+      <Types />
+      <Advertisement />
+      <Products />
+      <TopItems />
+      <Advertisement />
 
     </main>
   )

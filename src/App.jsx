@@ -15,6 +15,9 @@ import Login from './pages/user/login'
 import { Route, Routes } from 'react-router'
 import { productsApi } from './services/base.js'
 import Help from './components/user/help/index.jsx'
+import './index.css'
+import Cart from './pages/user/cart/index.jsx'
+import Favorite from './pages/user/favorite/index.jsx'
 
 
 function App() {
@@ -28,6 +31,8 @@ productsApi.getAllProduct()
           <Route element={<Search />} path='search' />
           <Route element={<Help />} path='help' />
           <Route element={<Contact />} path='contact' />
+          <Route element={<Cart />} path='cart' />
+          <Route element={<Favorite />} path='favorite' />
           <Route element={<Login />} path='login' />
         </Route>
         <Route path='/admin' element={<AdminLayout />}>
