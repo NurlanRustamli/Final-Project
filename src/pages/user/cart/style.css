@@ -1,0 +1,7 @@
+.cartlist{
+    flex-wrap: wrap;
+}
+#totalPrice{
+    margin-block: 30px;
+    color: rgb(0, 128, 128);
+}

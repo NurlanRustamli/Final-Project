@@ -18,6 +18,7 @@ import Help from './components/user/help/index.jsx'
 import './index.css'
 import Cart from './pages/user/cart/index.jsx'
 import Favorite from './pages/user/favorite/index.jsx'
+import Blog from './pages/user/blog/index.jsx'
 
 
 function App() {
@@ -27,13 +28,14 @@ productsApi.getAllProduct()
       <Routes>
         <Route path='/' element={<UserLayout />}>
           <Route element={<Home />} index />
-          <Route element={<Detail />} path=':id' />
-          <Route element={<Search />} path='search' />
+          <Route element={<Detail />} path='product/:id' />
+          <Route element={<Search />} path='search/:name' />
           <Route element={<Help />} path='help' />
           <Route element={<Contact />} path='contact' />
           <Route element={<Cart />} path='cart' />
           <Route element={<Favorite />} path='favorite' />
           <Route element={<Login />} path='login' />
+          <Route element={<Blog />} path='blog' />
         </Route>
         <Route path='/admin' element={<AdminLayout />}>
           <Route element={<Dashboard />} index />

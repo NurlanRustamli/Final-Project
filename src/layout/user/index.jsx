@@ -5,6 +5,7 @@ import Navbar from './navbar'
 import BottomNavbar from './bottomnavbar'
 import Footer from './footer'
 import { Outlet } from 'react-router'
+import BackToTop from '../../components/user/backtotop'
 
 
 function UserLayout() {
@@ -18,6 +19,7 @@ function UserLayout() {
       <Outlet />
       <BottomNavbar/>
       <Footer />
+      <BackToTop/>
     </>
   )
 }

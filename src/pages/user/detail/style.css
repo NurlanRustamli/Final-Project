@@ -1,0 +1,30 @@
+.detail-product{
+    .container{
+        width: 80%;
+    }
+    #detailimg{
+        margin-block: 10px;
+        border: 1px solid black;
+        width: 50%;
+    }
+    padding-block: 20px;
+    .detail-info{
+        width: 90%;
+        text-align: left;
+        font-size: 25px;
+        span{
+            color: rgb(0, 128, 83);
+        }
+    }
+    .detailproduct{
+        margin-top: 20px;
+        display: flex;justify-content: center;
+    }
+    .six-product-out{
+        width: 70%;
+    }
+
+    .directiontopr{
+        text-align: center;
+    }
+}

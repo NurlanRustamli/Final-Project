@@ -45,5 +45,10 @@
         padding: 6px 10px;
         border-radius: 10px;
         color: #fff;
+        &:hover{
+          border: 1px solid rgb(75 89 102 );
+          color: rgb(75 89 102 );
+          background-color: #fff;
+        }
     }
   }

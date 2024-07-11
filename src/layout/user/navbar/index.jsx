@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import { Link } from 'react-router-dom'
+import scroolToTop from '../../../provider/scroolToTop'
 
 function Navbar() {
   return (
@@ -54,10 +55,10 @@ function Navbar() {
             </div>
           </div> */}
           <div className="navbarinner col-lg-6 col-xl-6 col-md-12 col-sm-12">
-            <Link to='/'>Home</Link>
-            <Link to='/contact'>Contact</Link>
-            <Link to='/blog'>Blog</Link>
-            <Link to='/products'>Products</Link>
+            <Link to='/' onClick={()=>scroolToTop()}>Home</Link>
+            <Link to='/contact' onClick={()=>scroolToTop()}>Contact</Link>
+            <Link to='/blog' onClick={()=>scroolToTop()}>Blog</Link>
+            <Link to='/products' onClick={()=>scroolToTop()}>Products</Link>
           </div>
           {/* <div className="col-lg-3 col-xl-3 col-md-4 col-sm-4"></div> */}
         </div>

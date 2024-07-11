@@ -11,13 +11,18 @@ function Home() {
   return (
     <main>
       <Newsletter />
-      <Slider />
+      <div data-aos="zoom-in" data-aos-duration="1500">
+        <Slider />
+      </div>
+
       <Types />
-      <Advertisement />
+      <div data-aos="zoom-in" data-aos-duration="1500">
+
+        <Advertisement />
+      </div>
       <Products />
       <TopItems />
       <Advertisement />
-
     </main>
   )
 }
