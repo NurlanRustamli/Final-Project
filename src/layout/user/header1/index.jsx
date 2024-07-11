@@ -16,7 +16,7 @@ function Header1() {
                         +91 987 654 3210
                     </div>
                 </div>
-                <div className="fs-slogan col-xl-4 col-lg-4 col-md-4">World's Fastest Online Shopping Destination</div>
+                <div className="fs-slogan col-xl-4 col-lg-4 col-md-4 text-center">World's Fastest Online Shopping Destination</div>
                 <div className="fs-others col-xl-4 col-lg-4 col-md-4">
                     <div className="fs-help"><Link className="fs-help" to='/help'>Help?</Link></div>
                     <div className="fs-lang-name">

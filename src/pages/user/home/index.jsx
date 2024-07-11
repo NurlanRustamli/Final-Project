@@ -5,6 +5,7 @@ import Advertisement from '../../../components/user/advertisement'
 import TopItems from '../../../components/user/topitems'
 import Types from '../../../components/user/types'
 import Newsletter from '../../../components/user/newsletter'
+import HomeProducts from '../../../components/user/homeproducts'
 
 
 function Home() {
@@ -20,8 +21,8 @@ function Home() {
 
         <Advertisement />
       </div>
-      <Products />
-      <TopItems />
+      <HomeProducts />
+      {/* <TopItems /> */}
       <Advertisement />
     </main>
   )

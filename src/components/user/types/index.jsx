@@ -5,8 +5,8 @@ function Types() {
         <section id="fifth-section">
             <div class="container">
                 <div class="row">
-                    <div class="fif-product-out col-lg-2 col-xl-2 col-md-2">
-                        <div class="fif-product " 
+                    <div class="fif-product-out ">
+                        <div class="fif-product" 
                         style={{backgroundColor: "rgb(255,246,236 )"}}>
                             <div class="fif-pr">
                                 <span>30%</span>
@@ -17,7 +17,7 @@ function Types() {
                         </div>
                     </div>
 
-                    <div class="fif-product-out col-lg-2 col-xl-2 col-md-2">
+                    <div class="fif-product-out ">
                         <div class="fif-product " style={{backgroundColor: "rgb(226,253,226)"}}>
                             <div class="fif-pr">
                                 <i class="fa-solid fa-bread-slice"></i>
@@ -27,7 +27,7 @@ function Types() {
                         </div>
                     </div>
 
-                    <div class="fif-product-out col-lg-2 col-xl-2 col-md-2">
+                    <div class="fif-product-out ">
                         <div class="fif-product " style={{backgroundColor: "rgb(255 ,234 ,233)"}}>
                             <div class="fif-pr">
                                 <span>15%</span>
@@ -38,7 +38,7 @@ function Types() {
                         </div>
                     </div>
 
-                    <div class="fif-product-out col-lg-2 col-xl-2 col-md-2">
+                    <div class="fif-product-out ">
                         <div class="fif-product " style={{backgroundColor: "rgb(253,225,245)"}}>
                             <div class="fif-pr">
                                 <span>10%</span>
@@ -49,7 +49,7 @@ function Types() {
                         </div>
                     </div>
 
-                    <div class="fif-product-out col-lg-2 col-xl-2 col-md-2">
+                    <div class="fif-product-out ">
                         <div class="fif-product " style={{backgroundColor: "rgb(236,240,255)"}}>
                             <div class="fif-pr">
                                 <i class="fa-solid fa-cookie-bite"></i>
@@ -59,7 +59,7 @@ function Types() {
                         </div>
                     </div>
 
-                    <div class="fif-product-out col-lg-2 col-xl-2 col-md-2">
+                    <div class="fif-product-out ">
                         <div class="fif-product " style={{backgroundColor: "rgb(249,249,217)"}}>
                             <div class="fif-pr">
                                 <i class="fa-solid fa-whiskey-glass"></i>

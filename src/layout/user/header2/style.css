@@ -1,0 +1,27 @@
+.ss-icon {
+    position: relative;
+
+    span {
+        position: absolute;
+        top: -1%;
+        right: 1%;
+        z-index: 10;
+        background-color: rgb(119 119 119);
+        color: #fff;
+        font-size: 14px;
+        padding: 1.5px;
+    }
+}
+
+
+#cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#favorite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

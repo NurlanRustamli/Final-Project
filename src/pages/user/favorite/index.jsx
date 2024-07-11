@@ -5,7 +5,7 @@ import ProductCard from '../../../components/user/productcard'
 function Favorite() {
   const {favList}= useSelector(state=>state)
   return (
-    <div>
+    <div className='container'>
       <div className='d-flex justify-content-center fd-column align-items-center'>
             <div className="fav-heading">Your Wishlist
 

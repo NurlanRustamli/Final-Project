@@ -133,6 +133,7 @@ a:hover {
     align-items: center;
     position: relative;
     transition: .3s all ease;
+    text-align: center;
 }
 
 .ss-icon {
@@ -142,12 +143,15 @@ a:hover {
     transition: all ease .3s;
 
 }
-
+.ss-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .ss-info p:first-child {
     color: rgb(119 119 119);
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 500;
-    margin-bottom: 6px;
     transition: all ease .3s;
 }
 
@@ -164,8 +168,11 @@ a:hover {
 .ss-cart:hover .ss-icon,
 .ss-cart:hover .ss-info>p:first-child {
     color: rgb(92 175 144);
+    
 }
-
+.ss-cart:hover .ss-icon>span{
+    background-color: #5caf90;
+}
 .ss-login ul {
     position: absolute;
     background-color: #fff;
@@ -223,10 +230,15 @@ a:hover {
 
 /* fifth section */
 #fifth-section{
-    padding: 30px;
+    padding-block: 30px;
+    .row{
+        flex-wrap:wrap;
+        gap: 10px;
+        justify-content: space-between;
+    }
 }
 .fif-product-out {
-    padding-inline: 12px;
+    width: 15%;
 }
 
 .fif-product {
@@ -234,9 +246,12 @@ a:hover {
     /* background-color: rgb(255 246 236 ); */
     padding: 15px;
     width: 100%;
+    height: 20vh;
+    margin-bottom: 20px;
 }
 
 .fif-pr {
+   
     position: relative;
     display: flex;
     flex-direction: column;
@@ -245,6 +260,7 @@ a:hover {
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     padding: 15px;
+    height: 20vh;
 
     z-index: 5;
     box-shadow: 0 5px 15px rgba(88, 110, 125, 0.1);
@@ -304,6 +320,7 @@ a:hover {
 /* sixth section */
 #sixth-section {
     padding-block: 40px;
+   
 }
 
 .sixth-header {
@@ -330,16 +347,21 @@ a:hover {
     max-width: 400px;
     font-weight: 300;
 }
-
+.sixth-main{
+    display: flex;
+    justify-content: space-between;
+    
+}
 .six-product-out {
+    width: 24%;
     margin-bottom: 10px;
-    padding-inline: 12px;
     height: 100%;
 }
 
 .six-product {
     border: 1px solid rgb(238 238 238);
     border-radius: 5px;
+    height: 65vh;
 }
 
 .six-img {

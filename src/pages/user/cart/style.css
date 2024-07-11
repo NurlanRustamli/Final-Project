@@ -1,7 +1,11 @@
 .cartlist{
     flex-wrap: wrap;
+    width: 100%;
 }
 #totalPrice{
     margin-block: 30px;
     color: rgb(0, 128, 128);
+}
+.cartlistitem{
+    width: 33%;
 }

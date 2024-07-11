@@ -31,7 +31,7 @@ function ProductCard(props) {
           </div>
           {
             favList.find(item => item.id === id) ?
-              <div className="img-hover-icons" onClick={() => dispatch(removeFromFavAction(id))}>
+              <div className="img-hover-icons" onClick={() => dispatch(removeFromFavAction(props.product))}>
                 <MdFavorite  /></div> :
               <div className="img-hover-icons" onClick={() => dispatch(addToFavAction(props.product))}>
                 <MdFavoriteBorder  />

@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 1rem;
+    margin-block: 1.2rem;
 }
 
 .pagination button {
@@ -18,15 +18,21 @@
     transition: all 0.3s ease;
     background: transparent;
     color: #000;
-    border-color: #eee;
+    outline: none;
+    border: 1px solid #eee;
 }
 
 .pagination button.active {
     font-weight: 900;
-    border-color: rgb(45, 103, 82);
-    background: rgb(45, 103, 82);
+    border-color: rgb(88, 149, 126);
+    background: rgb(88, 149, 126);
     color: #fff;
+    outline: none;
+    border: 1px solid #eee;
 }
 .pagination button:hover{
     background-color:  rgb(92 175 144 );  
+    outline: none;
+    border: 1px solid #eee;
+    color: #fff;
 }

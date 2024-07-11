@@ -109,3 +109,25 @@ section#contact{
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: 0.5px;
 }
+.Products{
+    display: flex;justify-content: center;align-items: center;flex-direction: column;
+}
+.products-header{
+    width: 90%;
+    max-width: 1340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    
+}
+.Mainheading{
+    margin-block: 1.2rem;
+    font-size: 30px;
+    color: rgb(0, 102, 128);
+}
+.Subheading{
+    margin-block: 1.2rem;
+    font-size: 18px;
+    color: rgb(37, 38, 38);
+}
