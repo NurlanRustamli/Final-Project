@@ -1,17 +1,105 @@
-.cartlist{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.summary {
+    min-height: 300px;
+    border: 1px solid #e5e7eb;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+
+    >h3 {
+        color: rgb(75 89 102 / var(--tw-text-opacity));
+        border-bottom: 1px solid #e5e7eb;
+        width: 80%;
+        padding-bottom: 10px;
+        font-size: 22px;
+    }
+
+    .sub-price {
+        width: 80%;
+
+        p {
+            display: flex;
+            justify-content: space-between;
+            padding-block: 10px;
+        }
+
+    }
+
+    .totalamount {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 10px;
+
+        h3 {
+            display: flex;
+            justify-content: space-between;
+            color: rgb(75 89 102 / var(--tw-text-opacity));
+            border-top: 1px solid #e5e7eb;
+            width: 80%;
+            padding-top: 10px;
+        }
+
+    }
+
+    margin-bottom: 40px;
+
+}
+
+.cart-list {
+
+    img {
+        width: 60px;
+        margin-left: 2%;
+    }
+
+    display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    gap: 10px;
-}
-#totalPrice{
-    margin-block: 30px;
-    color: rgb(0, 128, 128);
-}
-.cartlistitem{
-    width: 24%;
-    min-height: 350px;
-    margin-bottom: 8rem;
-}
-#cart-sec{
-    padding-block: 20px;
+    justify-content: space-between;
+
+    h4 {
+        padding-block: 10px;
+       
+    }
+    
+
+    .cart-pr-list {
+        h4:first-child{
+            width: 100%;
+        border-bottom: 1px solid #e5e7eb;
+        padding-inline: auto;
+
+        }
+
+        .cart-product {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .cart-pr-qua {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        h4:nth-child(2){
+            text-align: center;
+        }
+    }
+    .cart-pr-list:first-child{
+        padding-left: 10px;
+    }
 }

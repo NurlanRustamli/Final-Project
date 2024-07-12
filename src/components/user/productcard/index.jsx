@@ -26,7 +26,7 @@ const changeNav=useNavigate()
         <img src={image} alt={name} />
         <div className='sale new'>{time}</div>
         <div className="img-hover icons">
-          <div className="img-hover-icons" onClick={addToCart}>
+          <div className="img-hover-icons" onClick={()=>dispatch(addToCartAction(props.product))}>
             <BsCartPlusFill  />
           </div>
           {

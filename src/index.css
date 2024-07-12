@@ -1,43 +1,51 @@
-section#contact{
+section#contact {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .section-heading{
-        
+
+    .section-heading {
+
         padding-bottom: 3rem;
-        h2{
+
+        h2 {
             color: rgb(0, 128, 111);
             font-size: 40px;
         }
     }
+
     padding-block: 2rem;
-    .contact-box{
+
+    .contact-box {
         text-align: center;
-        box-shadow: 0 2px 10px rgba(50 ,50, 50 ,.7);
+        box-shadow: 0 2px 10px rgba(50, 50, 50, .7);
         padding: 40px;
         height: 20rem;
-        display: flex;justify-content: center;align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
-        margin-inline:2rem;
+        margin-inline: 2rem;
         padding-inline: 30px;
         border-radius: 10px;
         margin-bottom: 10px;
-        h3{
+
+        h3 {
             font-size: 30px;
             color: rgb(92 175 144);
         }
-        .icon{
+
+        .icon {
             font-size: 40px;
             color: rgb(92 175 144);
         }
-        
+
     }
-    
-    .notification{
+
+    .notification {
         width: 70%;
         border-radius: 10px;
-        background-color: rgba(5, 141, 95,0.7);
+        background-color: rgba(5, 141, 95, 0.7);
         color: #fff;
         text-align: center;
         font-size: 20px;
@@ -45,20 +53,24 @@ section#contact{
         display: none;
     }
 }
-.contact-form{
-      
+
+.contact-form {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
     margin-top: 5rem;
-    form{
+
+
+    form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: center;
-        input{
+        text-align: left;
+
+        input {
             padding: 5px 30px;
             display: inline-block;
             width: 100%;
@@ -69,7 +81,8 @@ section#contact{
             outline: none;
             border-radius: 10px;
         }
-        textarea{
+
+        textarea {
             padding: 5px 30px;
             display: inline-block;
             border: 1px solid rgb(81, 81, 81);
@@ -80,7 +93,8 @@ section#contact{
             height: 5rem;
 
         }
-        #submit{
+
+        #submit {
             display: inline-block;
             border: none;
             outline: none;
@@ -88,13 +102,14 @@ section#contact{
             background-color: green;
             font-size: 20px;
             color: #fff;
-            padding: 20px 20px;
+            padding: 10px 20px;
             margin-top: 2rem;
-            width: 60%;
+            width: 100%;
             transition: all ease .2s;
             font-weight: 600;
             text-align: center;
-            &:hover{
+
+            &:hover {
                 background-color: #fff;
                 color: rgb(0, 128, 98);
                 border: 1px solid rgb(0, 128, 98);
@@ -102,7 +117,8 @@ section#contact{
         }
     }
 }
-.cart-heading{
+
+.cart-heading {
     font-size: 30px;
     font-weight: 600;
     margin-block: 30px;
@@ -110,31 +126,92 @@ section#contact{
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: 0.5px;
 }
-.Products{
-    display: flex;justify-content: center;align-items: center;flex-direction: column;
+
+.Products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-.products-header{
+
+.products-header {
     width: 90%;
     max-width: 1340px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 1.2rem;
-    
+
 }
-.Mainheading{
+
+.Mainheading {
     margin-block: 1.2rem;
     font-size: 30px;
     color: rgb(0, 102, 128);
 }
-.Subheading{
+
+.Subheading {
     margin-block: 1.2rem;
     font-size: 18px;
     color: rgb(37, 38, 38);
 }
-#avatar{
+
+#avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     overflow: hidden;
+}
+
+#login {
+    input {
+        border: 1px solid rgb(238 238 238);
+        font-size: 14px;
+        min-height:50px;
+        margin-bottom: 27px;
+    }
+
+    padding: 30px;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .login-form {
+        
+        padding: 0 30px;
+        border: 1px solid rgb(238 238 238);
+        border-radius: 20px;
+        margin-bottom: 30px;
+        justify-content: space-around;
+    }
+
+    img {
+        justify-self: center;
+        border-radius: 20px;
+        min-height: 45px;
+        margin-bottom: 30px;
+    }
+
+    .login-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #submit {
+        margin-top: 0;
+        width: 30%;
+    }
+    .sign{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+
 }

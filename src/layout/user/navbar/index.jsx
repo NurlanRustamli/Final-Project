@@ -54,11 +54,12 @@ function Navbar() {
               <div className="cat-sidebar"></div>
             </div>
           </div> */}
-          <div className="navbarinner col-lg-6 col-xl-6 col-md-12 col-sm-12">
-            <Link to='/' onClick={()=>scroolToTop()}>Home</Link>
-            <Link to='/contact' onClick={()=>scroolToTop()}>Contact</Link>
-            <Link to='/blog' onClick={()=>scroolToTop()}>Blog</Link>
-            <Link to='/products' onClick={()=>scroolToTop()}>Products</Link>
+          <a href="tel:+"></a>
+          <div className="navbarinner col-lg-6 col-xl-6 col-md-12 col-sm-12 d-flex justify-content-center">
+            <div onClick={()=>scroolToTop()}><Link to='/' >Home</Link></div>
+            <div onClick={()=>scroolToTop()}><Link to='/contact'>Contact</Link></div>
+            <div onClick={()=>scroolToTop()}><Link to='/blog' >Blog</Link></div>
+            <div onClick={()=>scroolToTop()}><Link to='/products' >Products</Link></div>
           </div>
           {/* <div className="col-lg-3 col-xl-3 col-md-4 col-sm-4"></div> */}
         </div>

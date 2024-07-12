@@ -12,11 +12,11 @@ function BottomNavbar() {
       <section id="bottomnav">
         <div className="container">
           <div className="row justify-content-between">
-            
+
             <div className="nav-left col-lg-3 col-xl-3 col-md-4 col-sm-6">
 
               <img src="https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/logo/logo.png" onClick={scroolToTop()} alt="" />
-              <p>Grabit is the biggest market of grocery products. Get your daily needs from our store.</p>
+              <p style={{paddingBlock:"5px",paddingInlineEnd:"5px"}}>Grabit is the biggest market of grocery products. Get your daily needs from our store.</p>
             </div>
             <div className="nav-left col-lg-2 col-xl-2 col-md-4 col-sm-6">
               <h3>Category</h3>
@@ -40,23 +40,22 @@ function BottomNavbar() {
               <ul>
                 <li><Link>Sign In</Link></li>
                 <li><Link>View Cart</Link></li>
-                <li><Link>Payments</Link></li>
               </ul>
             </div>
             <div className="nav-right col-lg-3 col-xl-3 col-md-4 col-sm-5">
               <h3>Contact</h3>
               <div className="location">
-                <FaLocationDot style={{ color: "green",marginRight:"5px"}} />
+                <FaLocationDot style={{ color: "green", marginRight: "5px" }} />
 
                 <Link>2548 Broaddus Maple Court, Madisonville KY 4783, USA.</Link>
               </div>
               <div className="whatsapp">
-              <FaWhatsapp style={{ color: "green",marginRight:"5px"}}/>
-              <Link>+994505050500</Link>
+                <FaWhatsapp style={{ color: "green", marginRight: "5px" }} />
+                <a href="tel:+99450505000">+994505050500</a>
               </div>
               <div className="email" >
-              <MdOutlineMail style={{ color: "green",marginRight:"10px"}}/>
-              <Link>example@gmail.com</Link>
+                <MdOutlineMail style={{ color: "green", marginRight: "10px" }} />
+                <a href="mailto:example@gmail.com">example@gmail.com</a>
               </div>
 
             </div>
