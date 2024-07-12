@@ -1,11 +1,17 @@
 .cartlist{
     flex-wrap: wrap;
     width: 100%;
+    gap: 10px;
 }
 #totalPrice{
     margin-block: 30px;
     color: rgb(0, 128, 128);
 }
 .cartlistitem{
-    width: 33%;
+    width: 24%;
+    min-height: 350px;
+    margin-bottom: 8rem;
+}
+#cart-sec{
+    padding-block: 20px;
 }

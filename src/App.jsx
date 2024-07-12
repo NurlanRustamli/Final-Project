@@ -20,6 +20,8 @@ import Cart from './pages/user/cart/index.jsx'
 import Favorite from './pages/user/favorite/index.jsx'
 import Blog from './pages/user/blog/index.jsx'
 import ProductsPage from './pages/user/products/index.jsx'
+import Register from './pages/user/register/index.jsx'
+import Profile from './pages/user/profile/index.jsx'
 
 
 function App() {
@@ -36,8 +38,10 @@ productsApi.getAllProduct()
           <Route element={<Cart />} path='cart' />
           <Route element={<Favorite />} path='favorite' />
           <Route element={<Login />} path='login' />
+          <Route element={<Register />} path='register' />
           <Route element={<Blog />} path='blog' />
           <Route element={<ProductsPage />} path='/products' />
+          <Route element={<Profile />} path='/profile' />
         </Route>
         <Route path='/admin' element={<AdminLayout />}>
           <Route element={<Dashboard />} index />

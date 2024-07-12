@@ -34,7 +34,7 @@ function Slider() {
           <h5>Starting at <span className="price">29.99$</span>
             </h5>
           <h2>Explore Fresh & Juicy Fruits</h2>
-          <Link className="shopNow">Shop Now </Link>
+          <Link className="shopNow" to="/products">Shop Now </Link>
         </div>
         </SwiperSlide>
   

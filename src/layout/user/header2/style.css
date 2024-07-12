@@ -6,11 +6,13 @@
         top: -1%;
         right: 1%;
         z-index: 10;
-        background-color: rgb(119 119 119);
-        color: #fff;
+        color: rgb(119 119 119);
         font-size: 14px;
         padding: 1.5px;
+        font-weight: 600;
+        
     }
+   
 }
 
 
@@ -24,4 +26,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }

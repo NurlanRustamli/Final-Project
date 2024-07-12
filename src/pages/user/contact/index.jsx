@@ -63,7 +63,7 @@ function Contact() {
           </div>
         </div>
         <div className="row justify-content-center">
-          <div className="col-md-7 contact-form">
+          <div className="col-md-9 col-xl-7 col-lg-7 col-sm-11 contact-form">
             <form onSubmit={sendMail} ref={form}>
               <label htmlFor="">Full Name:</label>
               <input type="text" id='fullname' name='fullname'

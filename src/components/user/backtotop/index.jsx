@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom'
 
 function BackToTop() {
   return (
+    <Link onClick={()=>scroolToTop()}>
     <div className='backtotop'>
-       <Link to='/' onClick={()=>scroolToTop()}><FaArrowUp id='backtop'/></Link>
+       <FaArrowUp id='backtop'/>
     </div>
+    </Link>
   )
 }
 

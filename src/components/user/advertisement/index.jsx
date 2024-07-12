@@ -11,7 +11,7 @@ function Advertisement() {
           <div className="info ">
             <h2>Fresh Fruits Healthy Products</h2>
             <h3><span>30% off sale</span> Hurry Up!</h3>
-            <Link >Shop Now</Link>
+            <Link to="/products" >Shop Now</Link>
           </div>
         </div>
 

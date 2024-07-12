@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './style.css'
 import { FaLocationDot, FaWhatsapp } from 'react-icons/fa6'
 import { MdOutlineMail } from 'react-icons/md'
+import scroolToTop from '../../../provider/scroolToTop'
 
 function BottomNavbar() {
   return (
@@ -11,8 +12,10 @@ function BottomNavbar() {
       <section id="bottomnav">
         <div className="container">
           <div className="row justify-content-between">
+            
             <div className="nav-left col-lg-3 col-xl-3 col-md-4 col-sm-6">
-              <img src="https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/logo/logo.png" alt="" />
+
+              <img src="https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/logo/logo.png" onClick={scroolToTop()} alt="" />
               <p>Grabit is the biggest market of grocery products. Get your daily needs from our store.</p>
             </div>
             <div className="nav-left col-lg-2 col-xl-2 col-md-4 col-sm-6">

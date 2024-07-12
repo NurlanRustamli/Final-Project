@@ -1,3 +1,13 @@
-.six-product-out{
-    width: 33%;
+#favorite-sec{
+    padding-top: 40px;
+    .fav-heading{
+        font-size: 50px;
+        font-weight: 600;
+        color: rgb(0, 128, 115);
+        margin-bottom: 30px;
+    }
+    .empty-w{
+        font-size: 24px;
+    }
+   
 }
