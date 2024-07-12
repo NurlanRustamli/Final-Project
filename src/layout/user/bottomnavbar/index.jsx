@@ -21,25 +21,25 @@ function BottomNavbar() {
             <div className="nav-left col-lg-2 col-xl-2 col-md-4 col-sm-6">
               <h3>Category</h3>
               <ul>
-                <li><Link>Dairy</Link></li>
-                <li><Link>Snack</Link></li>
-                <li><Link>Fast</Link></li>
-                <li><Link>Juice</Link></li>
+                <li onClick={()=>scroolToTop()}><Link>Dairy</Link></li>
+                <li onClick={()=>scroolToTop()}><Link>Snack</Link></li>
+                <li onClick={()=>scroolToTop()}><Link>Fast</Link></li>
+                <li onClick={()=>scroolToTop()}><Link>Juice</Link></li>
               </ul>
             </div>
             <div className="nav-lm col-lg-2 col-xl-2 col-md-3 col-sm-4">
               <h3>Company</h3>
               <ul>
-                <li><Link>About us</Link></li>
-                <li><Link>Contact Us</Link></li>
-                <li><Link>Terms & Conditions</Link></li>
+                <li onClick={()=>scroolToTop()}><Link>About us</Link></li>
+                <li onClick={()=>scroolToTop()}><Link to="/contact">Contact Us</Link></li>
+                <li onClick={()=>scroolToTop()}><Link to="/terms">Terms & Conditions</Link></li>
               </ul>
             </div>
             <div className="nav-rm col-lg-2 col-xl-2 col-md-3 col-sm-4">
               <h3>Account</h3>
               <ul>
-                <li><Link>Sign In</Link></li>
-                <li><Link>View Cart</Link></li>
+                <li onClick={()=>scroolToTop()}><Link>Sign In</Link></li>
+                <li onClick={()=>scroolToTop()}><Link>View Cart</Link></li>
               </ul>
             </div>
             <div className="nav-right col-lg-3 col-xl-3 col-md-4 col-sm-5">

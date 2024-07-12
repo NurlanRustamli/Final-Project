@@ -26,7 +26,7 @@ const changeNav=useNavigate()
         <img src={image} alt={name} />
         <div className='sale new'>{time}</div>
         <div className="img-hover icons">
-          <div className="img-hover-icons" onClick={()=>dispatch(addToCartAction(props.product))}>
+          <div className="img-hover-icons" onClick={()=>isLogin?dispatch(addToCartAction(props.product)):changeNav("/login")}>
             <BsCartPlusFill  />
           </div>
           {

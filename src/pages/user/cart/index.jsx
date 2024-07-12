@@ -4,6 +4,8 @@ import './style.css'
 import { MdRemoveShoppingCart } from 'react-icons/md';
 import { addToCartAction, countDecrement, removeFromCart } from '../../../redux/actions/cartListAction';
 import { useNavigate } from 'react-router';
+import Products from '../../../components/user/products';
+import HomeProducts from '../../../components/user/homeproducts';
 
 function Cart() {
     let totalPrice = 0;
@@ -14,15 +16,15 @@ function Cart() {
         <section id="cart-sec">
             <div className="container">
                 <div className="row">
-                    <h1>Your Cart</h1>
+                    <h1 style={{ textAlign: "center", width: "100%", paddingBlock: "20px", fontSize: "40px" }}>Your Cart</h1>
                 </div>
                 <div className="row d-flex justify-content-center ">
                     <div className="summary d-flex justify-content-center  col-lg-4 col-xl-4 col-md-10 col-sm-10">
                         <h3>Summary</h3>
                         <div className="sub-price">
-                            <p>Previous Total: <span /></p>
-                            <p>Discount Total: <span /></p>
-                            <p>Delivery Total: <span>0</span></p>
+                            <p>Previous Total: <span >{cartList.reduce((acc, item) => { return acc += item.count * parseInt(item.previousPrice) }, 0)} $</span></p>
+                            <p>Discount Total: <span>{cartList.reduce((acc, item) => { return acc += item.count * parseInt(item.discountPrice) }, 0)} $</span></p>
+                            <p>Discount: <span>{cartList.reduce((acc, item) => { return acc += item.count * parseInt(item.previousPrice) }, 0) - cartList.reduce((acc, item) => { return acc += item.count * parseInt(item.discountPrice) }, 0)} $</span></p>
                         </div>
                         <div className="totalamount">
                             <h3>Total Amount: <span>{cartList.reduce((acc, item) => { return acc += item.count * parseInt(item.discountPrice) }, 0)} $</span></h3>
@@ -51,9 +53,9 @@ function Cart() {
                                     </div>
                                     <div className="cart-pr-list col-xl-2 col-lg-2 col-md-2 col-sm-2">
                                         <h4 >Quantity</h4>
-                                        <div className="cart-pr-qua"><button onClick={()=>isLogin?dispatch(countDecrement(item)):changeNav("/login")} >-</button>
+                                        <div className="cart-pr-qua"><button onClick={() => isLogin ? dispatch(countDecrement(item)) : changeNav("/login")} >-</button>
                                             <h4>{item.count}</h4>
-                                            <button onClick={()=>dispatch(addToCartAction(item))}>+</button>
+                                            <button onClick={() => dispatch(addToCartAction(item))}>+</button>
                                         </div>
                                     </div>
                                     <div className="cart-pr-list col-xl-2 col-lg-2 col-md-2 col-sm-2">
@@ -63,9 +65,9 @@ function Cart() {
                                     </div>
                                     <div className="cart-pr-list col-xl-2 col-lg-2 col-md-2 col-sm-2">
                                         <h4 >Remove</h4>
-                                        <div className="img-hover-icons d-flex align-items-center" style={{width:"100%",height:"40px"}}
-                                        onClick={() => isLogin ? dispatch(removeFromCart(item)) : changeNav("/login")}>
-                                            <MdRemoveShoppingCart style={{width:"100%",height:"30px"}}/>
+                                        <div className="img-hover-icons d-flex align-items-center" style={{ width: "100%", height: "40px" }}
+                                            onClick={() => isLogin ? dispatch(removeFromCart(item)) : changeNav("/login")}>
+                                            <MdRemoveShoppingCart style={{ width: "100%", height: "30px" }} />
                                         </div>
                                     </div>
                                 </div>
@@ -74,11 +76,11 @@ function Cart() {
                             : <div className='empty-c'>Cart is empty</div>
                         }
                     </div>
-
-
+                    
                 </div>
             </div>
-
+          
+            <HomeProducts />
         </section>
 
 
