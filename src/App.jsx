@@ -22,9 +22,12 @@ import Blog from './pages/user/blog/index.jsx'
 import ProductsPage from './pages/user/products/index.jsx'
 import Register from './pages/user/register/index.jsx'
 import Profile from './pages/user/profile/index.jsx'
+import { useSelector } from 'react-redux'
+import NotFound from './pages/user/notfound/index.jsx'
 
 
 function App() {
+  const {isLogin} = useSelector(state=>state)
 productsApi.getAllProduct()
   return (
     <>
@@ -41,7 +44,10 @@ productsApi.getAllProduct()
           <Route element={<Register />} path='register' />
           <Route element={<Blog />} path='blog' />
           <Route element={<ProductsPage />} path='/products' />
-          <Route element={<Profile />} path='/profile' />
+        {
+          isLogin?  <Route element={<Profile />} path='/profile' />:null
+        }
+        <Route element={<NotFound/>} path='*'/>
         </Route>
         <Route path='/admin' element={<AdminLayout />}>
           <Route element={<Dashboard />} index />

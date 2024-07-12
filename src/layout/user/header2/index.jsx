@@ -8,7 +8,7 @@ import { RiAccountCircleFill } from 'react-icons/ri'
 
 function Header2() {
   const [sum, setSum] = useState(0)
-  const { cartList, favList } = useSelector(state => state)
+  const { cartList, favList,isLogin,userData } = useSelector(state => state)
 
   useEffect(() => {
     setSum(cartList.reduce((acc, item, index, arr) => {
@@ -28,20 +28,27 @@ function Header2() {
 
           <Search />
           <div className="ss-others col-lg-3 col-xl-3 col-md-4">
+            <Link to={`${Object.keys(userData).length ? "/profile" : "/login"}`} style={{display:'flex',}}>
             <div className="ss-login">
-              <div className="ss-icon">
-              <RiAccountCircleFill />
-              </div>
+              {
+                userData.avatar ? <div className="ss-icon">
+                <img src={userData.avatar} id='avatar' alt="" />
+                </div>:<div className="ss-icon">
+                <RiAccountCircleFill />
+                </div>
+              }
+              
               <div className="ss-info">
                 <p>Account</p>
                 <div>
-                  <ul>
+                  {/* <ul>
                     <li><Link to='/register'>Register</Link></li>
                     <li><Link to="/login">Login</Link></li>
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
-            </div>
+            </div></Link>
+            
             <Link to='/favorite'  id='favorite'>
             <div className="ss-wish">
               

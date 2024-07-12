@@ -132,3 +132,9 @@ section#contact{
     font-size: 18px;
     color: rgb(37, 38, 38);
 }
+#avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}

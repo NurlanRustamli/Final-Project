@@ -1,4 +1,4 @@
-export function loginAction() {
+export const loginAction=()=> {
     return{
         type:"LOGIN_TRUE"
     }

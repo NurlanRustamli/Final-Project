@@ -4,16 +4,16 @@ import { BsCartDashFill } from "react-icons/bs";
 import { MdFavorite, MdFavoriteBorder, MdRemoveShoppingCart } from "react-icons/md";
 import { FaCodeCompare } from "react-icons/fa6";
 import './style.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCartAction, countDecrement, removeFromCart } from '../../../redux/actions/cartListAction';
 import { addToFavAction, removeFromFavAction } from '../../../redux/actions/favList.actions';
 
 function ProductCard(props) {
   let { id, rating, previousPrice, weight, discountPrice, time, image, name, type } = props.product
-
+const changeNav=useNavigate()
   const dispatch = useDispatch()
-  const { favList } = useSelector(state => state)
+  const { favList ,isLogin} = useSelector(state => state)
   function addToCart() {
 
     dispatch(addToCartAction(props.product))
@@ -32,19 +32,20 @@ function ProductCard(props) {
           {
             favList.find(item => item.id === id) ?
               <div className="img-hover-icons" onClick={() => dispatch(removeFromFavAction(props.product))}>
-                <MdFavorite  /></div> :
-              <div className="img-hover-icons" onClick={() => dispatch(addToFavAction(props.product))}>
+                <MdFavorite  /></div> 
+                :
+              <div className="img-hover-icons" onClick={() => isLogin? dispatch(addToFavAction(props.product)):changeNav("/login")}>
                 <MdFavoriteBorder  />
               </div>
           }
-          <div className="img-hover-icons" onClick={()=>dispatch(countDecrement(props.product))}>
+          <div className="img-hover-icons" onClick={()=>isLogin?dispatch(countDecrement(props.product)):changeNav("/login")}>
             <BsCartDashFill />
           </div>
 
           <div className="img-hover-icons">
             <FaCodeCompare />
           </div>
-          <div className="img-hover-icons" onClick={()=>dispatch(removeFromCart(props.product))}>
+          <div className="img-hover-icons" onClick={()=>isLogin?dispatch(removeFromCart(props.product)):changeNav("/login")}>
           <MdRemoveShoppingCart />
           </div>
         </div>

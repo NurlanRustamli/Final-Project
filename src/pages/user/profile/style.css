@@ -1,0 +1,55 @@
+#profile-sec {
+    padding-block: 30px;
+
+    .row {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        #profinfo {
+            
+            font-size: 45px;
+            padding-bottom: 20px;
+        }
+
+        .profname,.profemail {
+            
+            font-size: 35px;
+            padding-bottom: 20px;
+            span{
+                color: rgb(0, 128, 119);
+            }
+        }
+        .profphoto{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 30%;
+                border-radius: 50%;
+                
+            }
+        }
+        button{
+            padding: 10px 30px;
+            border-radius: 20px;
+            background-color: rgb(92 175 144);
+            border: 1px solid rgb(92 175 144);
+            color: #fff;
+            font-weight: 600;
+            outline: 0;
+            border: 0;
+            font-family: 'Poppins',sans-serif;
+            padding-block: 10px;
+            &:hover{
+                background-color: #fff;
+                color: rgb(92 175 144);
+            border: 1px solid rgb(92 175 144);
+
+            }
+        }
+
+    }
+
+}

@@ -28,10 +28,10 @@ export const productsApi = {
     }
 }
 export const usersApi = {
-    loginUser: async function (email, password) {
+    loginUser: async function () {
 
         try {
-            let res = await axios.get(`${usersUrl}?email=${email}&password=${password}`)
+            let res = await axios.get(`${usersUrl}`)
             return res
         } catch (error) {
             return error.response
