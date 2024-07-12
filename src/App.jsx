@@ -27,7 +27,7 @@ import NotFound from './pages/user/notfound/index.jsx'
 
 
 function App() {
-  const {isLogin} = useSelector(state=>state)
+  const {isLogin,userData} = useSelector(state=>state)
 productsApi.getAllProduct()
   return (
     <>
@@ -49,11 +49,13 @@ productsApi.getAllProduct()
         }
         <Route element={<NotFound/>} path='*'/>
         </Route>
-        <Route path='/admin' element={<AdminLayout />}>
+        {
+          userData.email === "admin@grabit.az"?<Route path='/admin' element={<AdminLayout />}>
           <Route element={<Dashboard />} index />
           <Route element={<Products />} path='products' />
           <Route element={<Users />} path='users' />
-        </Route>
+        </Route>:null
+        }
       </Routes>
     </>
   )
