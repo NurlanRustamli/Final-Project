@@ -28,6 +28,7 @@ import Terms from './pages/user/terms/index.jsx'
 import ScroolToTop from './provider/scroolToTop.jsx'
 import Checkout from './pages/user/checkout/index.jsx'
 import Successful from './pages/user/succesfulpayment/index.jsx'
+import AboutUs from './pages/user/aboutus/index.jsx'
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route element={<Blog />} path='blog' />
           <Route element={<ProductsPage />} path='/products' />
           <Route element={<Terms />} path='/terms' />
+          <Route element={<AboutUs />} path='/about' />
           {
             isLogin ? <Route element={<Checkout />} path='/checkout' /> : null
           }

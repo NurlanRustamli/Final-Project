@@ -6,6 +6,7 @@ import TopItems from '../../../components/user/topitems'
 import Types from '../../../components/user/types'
 import Newsletter from '../../../components/user/newsletter'
 import HomeProducts from '../../../components/user/homeproducts'
+import Services from '../../../components/user/services'
 
 
 function Home() {
@@ -22,6 +23,7 @@ function Home() {
         <Advertisement />
       </div>
       <HomeProducts />
+      <Services/>
       {/* <TopItems /> */}
       <Advertisement />
     </main>

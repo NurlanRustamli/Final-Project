@@ -1,7 +1,7 @@
 .checkout-item {
-
     border: 1px solid #e5e7eb;
     border-radius: 10px;
+    margin: 10px 0;
 
     .checkinfo {
         padding: 5px;
@@ -30,7 +30,12 @@
 .sold-products {
     padding: 10px;
 }
-
+.check-com{
+    textarea{
+        width: 100%;
+        height: 10rem;
+    }
+}
 .check-radio {
     padding-block: 10px;
     width: 100%;

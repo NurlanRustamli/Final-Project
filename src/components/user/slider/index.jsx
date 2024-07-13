@@ -6,14 +6,14 @@ import 'swiper/css/pagination';
 
 import './styles.css';
 
-import { Autoplay,Pagination } from 'swiper/modules';
+import { Autoplay, } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 function Slider() {
   return (
     <>
       <Swiper
-     pagination={true} modules={[Autoplay,Pagination]} className="mySwiper"
+     pagination={true} modules={[Autoplay]} className="mySwiper"
      autoplay={{
        delay:3000,
        disableOnInteraction:false,

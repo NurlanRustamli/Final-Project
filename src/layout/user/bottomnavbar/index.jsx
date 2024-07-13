@@ -32,7 +32,7 @@ function BottomNavbar() {
             <div className="nav-lm col-lg-2 col-xl-2 col-md-3 col-sm-4">
               <h3>Company</h3>
               <ul>
-                <li><Link>About us</Link></li>
+                <li><Link to="/about">About us</Link></li>
                 <li ><Link to="/contact">Contact Us</Link></li>
                 <li ><Link to="/terms">Terms & Conditions</Link></li>
               </ul>
