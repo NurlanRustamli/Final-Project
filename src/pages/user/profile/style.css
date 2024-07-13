@@ -39,7 +39,6 @@
             color: #fff;
             font-weight: 600;
             outline: 0;
-            border: 0;
             font-family: 'Poppins',sans-serif;
             padding-block: 10px;
             &:hover{

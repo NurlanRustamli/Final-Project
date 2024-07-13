@@ -14,7 +14,7 @@ import Search from './pages/user/search'
 import Login from './pages/user/login'
 import { Route, Routes } from 'react-router'
 import { productsApi } from './services/base.js'
-import Help from './components/user/help/index.jsx'
+import Help from './pages/user/help/index.jsx'
 import './index.css'
 import Cart from './pages/user/cart/index.jsx'
 import Favorite from './pages/user/favorite/index.jsx'
@@ -25,13 +25,17 @@ import Profile from './pages/user/profile/index.jsx'
 import { useSelector } from 'react-redux'
 import NotFound from './pages/user/notfound/index.jsx'
 import Terms from './pages/user/terms/index.jsx'
+import ScroolToTop from './provider/scroolToTop.jsx'
+import Checkout from './pages/user/checkout/index.jsx'
+import Successful from './pages/user/succesfulpayment/index.jsx'
 
 
 function App() {
-  const {isLogin,userData} = useSelector(state=>state)
-productsApi.getAllProduct()
+  const { isLogin, userData } = useSelector(state => state)
+  productsApi.getAllProduct()
   return (
-    <>
+    <>  
+    <ScroolToTop />
       <Routes>
         <Route path='/' element={<UserLayout />}>
           <Route element={<Home />} index />
@@ -46,17 +50,23 @@ productsApi.getAllProduct()
           <Route element={<Blog />} path='blog' />
           <Route element={<ProductsPage />} path='/products' />
           <Route element={<Terms />} path='/terms' />
-        {
-          isLogin?  <Route element={<Profile />} path='/profile' />:null
-        }
-        <Route element={<NotFound/>} path='*'/>
+          {
+            isLogin ? <Route element={<Checkout />} path='/checkout' /> : null
+          }
+          {
+            isLogin ? <Route element={<Successful />} path='/successful' /> : null
+          }
+          {
+            isLogin ? <Route element={<Profile />} path='/profile' /> : null
+          }
+          <Route element={<NotFound />} path='*' />
         </Route>
         {
-          userData.email === "admin@grabit.az"?<Route path='/admin' element={<AdminLayout />}>
-          <Route element={<Dashboard />} index />
-          <Route element={<Products />} path='products' />
-          <Route element={<Users />} path='users' />
-        </Route>:null
+          userData.email === "admin@grabit.az" ? <Route path='/admin' element={<AdminLayout />}>
+            <Route element={<Dashboard />} index />
+            <Route element={<Products />} path='products' />
+            <Route element={<Users />} path='users' />
+          </Route> : null
         }
       </Routes>
     </>

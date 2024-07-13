@@ -47,10 +47,18 @@ function Register() {
     }
 
     return (
-        <section id='register'>
+        <section id='login'>
             <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-9 col-xl-7 col-lg-7 col-sm-11 contact-form">
+                <div className="row">
+                    <div className="login-header">
+                        <h1>Register</h1>
+                        <p>Get access to your Orders, Wishlist and Recommendations.</p>
+                    </div>
+                </div>
+
+                <div className="row justify-content-between">
+
+                    <div className="col-md-6 col-xl-6 col-lg-6 col-sm-8 login-form contact-form" style={{padding:"20px"}}>
                         <form onSubmit={registerUser} >
                             <label htmlFor="">Full Name:</label>
 
@@ -60,7 +68,7 @@ function Register() {
                             <label htmlFor="">Email:</label>
 
                             <input type="email" id='useremail' name='useremail'
-                                placeholder='Your email address ....' required ref={email} />
+                                placeholder='Your email address ....' required ref={email}/>
                             <br />
 
                             <label htmlFor="">Password:</label>
@@ -69,15 +77,23 @@ function Register() {
                             <br />
                             <label htmlFor="">Avatar:</label>
                             <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-                            <button type="submit" id='submit' >Sign Up</button>
+                            <div className="sign d-flex justify-content-between align-items-center">
+                                <div className="register">
+                                    <Link to="/login">Login</Link>
+                                </div>
+                                <button type="submit" id='submit' >Sign In</button>
+
+                            </div>
 
                         </form>
-                        <div className="register">
-                            <Link to="/login">Login</Link>
-                        </div>
+
 
                     </div>
+                    <div className="col-lg-5 col-xl-5 col-md-6 col-sm-6 d-flex" style={{ marginTop: "5rem", minHeight: "35px" }}>
+                        <img src="https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/common/login.png" alt="" />
+                    </div>
                 </div>
+
             </div>
         </section>
     )

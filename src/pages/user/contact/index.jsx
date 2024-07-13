@@ -42,28 +42,40 @@ function Contact() {
         <div className="row justify-content-center">
           <div className="col-lg-3 col-xl-3 col-md-6 col-sm-12">
             <div className="contact-box">
-              <div className="icon"><MdAlternateEmail /></div>
-              <h3>Email</h3>
-              <p>example@gmail.com</p>
+              <div className="icon-out"><div className="icon"><MdAlternateEmail /></div></div>
+              <div className="conheading">
+                <h3>Email</h3>
+                <p>example@gmail.com</p>
+              </div>
+
             </div>
           </div>
           <div className="col-lg-3 col-xl-3 col-md-6 col-sm-12">
             <div className="contact-box">
-              <div className="icon"><FaLocationCrosshairs /></div>
-              <h3>Location</h3>
-              <p>2548 Broaddus Maple Court, Madisonville KY 4783, USA.</p>
+              <div className="icon-out"><div className="icon"><FaLocationCrosshairs /></div></div>
+              <div className="conheading">
+                <h3>Location</h3>
+                <p>2548 Broaddus Maple Court, Madisonville KY 4783, USA.</p>
+              </div>
+
             </div>
           </div>
           <div className="col-lg-3 col-xl-3 col-md-6 col-sm-12">
             <div className="contact-box">
-              <div className="icon"><MdOutlinePhoneAndroid /></div>
-              <h3>Phone Number</h3>
-              <p>+9945050500</p>
+              <div className="icon-out"><div className="icon"><MdOutlinePhoneAndroid /></div></div>
+              <div className="conheading">
+                <h3>Phone Number</h3>
+                <p>+9945050500</p>
+              </div>
+
             </div>
           </div>
         </div>
         <div className="row justify-content-center">
-          <div className="col-md-9 col-xl-7 col-lg-7 col-sm-11 contact-form">
+          <div className="col-md-11 col-xl-6 col-lg-6 col-sm-11 maps">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24092.158981021585!2d45.596598239585155!3d40.991993159483144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4040da7d132705b7%3A0x1efe3978dbc139ec!2sTovuz!5e0!3m2!1saz!2saz!4v1720849255469!5m2!1saz!2saz" width="600" height="450" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div className="col-md-11 col-xl-6 col-lg-6 col-sm-11 login-form contact-form">
             <form onSubmit={sendMail} ref={form}>
               <label htmlFor="">Full Name:</label>
               <input type="text" id='fullname' name='fullname'
@@ -82,7 +94,10 @@ function Contact() {
               <textarea id='description' name='description'
                 placeholder='Enter Description ....' required disabled={disabledInput} />
               <br />
+              <div className="submit-out">
               <button type="submit" id='submit' disabled={disabledInput}>Submit</button>
+
+              </div>
               <br />
             </form>
           </div>

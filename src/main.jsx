@@ -11,7 +11,9 @@ AOS.init();
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={globalState}>
     <BrowserRouter>
+
       <App />
+
     </BrowserRouter>
   </Provider>
 

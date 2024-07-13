@@ -1,0 +1,20 @@
+.successpay{
+    padding: 30px;
+    h1{
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: 0.2rem;
+    }
+    main{
+        padding: 20px;
+        border-radius: 20px;
+        background-color: rgb(92 175 144);
+        text-align: center;
+        color: #fff;
+        margin-block: 20px;
+
+    }
+    footer{
+        text-align: center;
+    }
+}

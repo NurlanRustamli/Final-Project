@@ -1,0 +1,97 @@
+.checkout-item {
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    .checkinfo {
+        padding: 5px;
+        border-left: 1px solid #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h5 {
+            font-size: 18px;
+            padding-block: 5px;
+        }
+
+        h6 {
+            font-size: 16px;
+            padding-block: 5px;
+
+            del {
+                color: #afb0b2;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.sold-products {
+    padding: 10px;
+}
+
+.check-radio {
+    padding-block: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .five {
+        width: 50%;
+    }
+
+    .free {
+        width: 50%;
+    }
+
+    input {
+        display: inline-block;
+        padding: 10px;
+    }
+
+    label {
+        padding-inline: 10px;
+    }
+
+    .check-com {
+
+        display: flex;
+        flex-direction: column;
+        padding-block: 10px;
+
+        label {
+            padding-block: 10px;
+
+        }
+    }
+}
+
+.billing-details-out {
+    padding-inline: 10px;
+}
+
+.billing-details {
+    h3{
+        border-bottom: 1px solid #e5e7eb;
+        padding-block: 10px;
+    }
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+
+    select {
+        width: 100%;
+        border-radius: 10px;
+        padding: 20px 10px;
+        margin-block: 10px;
+    }
+
+ 
+}
+
+.billing-details input {
+    margin-block: 10px;
+    padding-block: 25px !important;
+}

@@ -1,43 +1,73 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { productsApi } from '../../../services/base'
 import "./style.css"
-import ProductCard from '../../../components/user/productcard'
-import { FaArrowCircleDown } from 'react-icons/fa'
+import { BsCartDashFill, BsCartPlusFill } from 'react-icons/bs'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCartAction, countDecrement, removeFromCart } from '../../../redux/actions/cartListAction'
+import Products from '../../../components/user/products'
+import AdditionalProducts from '../../../components/user/additionalproducts'
 
 function Detail() {
   const { id } = useParams()
   const [product, setProduct] = useState({})
+  const { cartList, isLogin } = useSelector(state => state)
+  const dispatch = useDispatch()
+  const changeNav = useNavigate()
+
   useEffect(() => {
-    productsApi.getSingleProduct(id).then(data => setProduct(data))
-  }, [id])
-  console.log(product, product.id)
+    productsApi.getSingleProduct(id).then(data => {
+      const foundProduct = cartList.find(item => item.id === data.id);
+      if (foundProduct) {
+        setProduct(foundProduct);
+      } else {
+        setProduct({ ...data, count: 0 });
+      }
+    })
+  }, [id, cartList])
+
   return (
     <div className="detail-product">
       <div className='container'>
-        <div className="row justify-content-center  fd-column align-items-center">
-          <h1>{product.name}</h1>
-          <img id='detailimg' src={product.image} alt="" />
-          <div className="detail-info">
-            <h3>Type: <span>{product.type}</span></h3>
-            <h3>Rating: <span>{product.rating}</span></h3>
-            <h3>Weight: <span>{product.weight}</span></h3>
-            <h3>Previous Price: <span>{product.previousPrice}</span></h3>
-            <h3>Discount Price: <span>{product.discountPrice}</span></h3>
+        <div className="row justify-content-between align-items-center">
+          <div className="col-lg-5 col-xl-5 col-md-7 col-sm-12 detailimg">
+            <img id='detailimg' src={product.image} alt={product.name} />
           </div>
-          <div className="directiontopr">
-          <h3>You can add this product to your cart</h3>
-          <h3>Product is below <FaArrowCircleDown /></h3>
-          </div>
-          <div className="detailproduct">
-            <div className=' six-product-out col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-6 cartlistitem' key={product.id}>
-              <ProductCard product={product} />
+          <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12">
+            <h1>{product.name}</h1>
+            <div className="detail-info">
+              <h3>Rating: <span>{product.rating}</span></h3>
+              <div className="detail-price">
+                <h3>Discount Price: <span>{product.discountPrice}$</span></h3>
+                <h5>Previous Price: <span>{product.previousPrice}$</span></h5>
+              </div>
+              <div className="detail-desc">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae, Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, enim reprehenderit.
+              </div>
+              <div className="detail-bot-info">
+                <h3>Type: <span>{product.type}</span></h3>
+                <h3>Weight: <span>{product.weight} kg</span></h3>
+              </div>
+              <div className="detail-cart">
+                <div className="img-hover-icons" onClick={() => isLogin ? product.count===1 ?dispatch(removeFromCart({ ...product })):dispatch(countDecrement({ ...product })) : changeNav("/login")}>
+                  <BsCartDashFill />
+                </div>
+                <h4>{product.count}</h4>
+                <div className="img-hover-icons" onClick={() => isLogin ? dispatch(addToCartAction({ ...product })) : changeNav("/login")}>
+                  <BsCartPlusFill />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div className="row">
+          <header style={{textAlign:'center',width:"100%",paddingBlock:"20px"}}><h1>Related <span style={{color:"rgb(0, 128, 83)"}}>Products</span> </h1>
+          <p>Browse The Collection of Top Products</p>
+          </header>
+          <AdditionalProducts />
+        </div>
       </div>
     </div>
-
   )
 }
 

@@ -1,0 +1,65 @@
+.help{
+  padding-block: 30px;
+  .row{
+    justify-content: space-around;
+
+  }
+  h1{
+    text-align: center;
+    padding-block: 40px;
+    span{
+      color: rgb(0, 128, 111);
+    }
+  }
+}
+.faq-container{
+  width: 100%;
+}
+
+details summary .icon svg {
+  height: 24px;
+  display: flex;
+}
+
+
+details .content {
+  padding: 16px;
+  line-height: 1.8;
+  margin-top: -10px;
+}
+
+details summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px;
+  background: rgb(238 238 238 );
+  color: rgb(75 89 102 );
+  user-select: none;
+  transition: all 120ms ease;
+}
+
+details {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary {
+  background: rgb(238 238 238 );
+  margin-bottom: 10px;
+}
+
+details summary .icon {
+  transition: all 120ms ease;
+}
+
+details[open] summary .icon {
+  rotate: 180deg;
+}
