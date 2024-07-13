@@ -29,6 +29,12 @@ import ScroolToTop from './provider/scroolToTop.jsx'
 import Checkout from './pages/user/checkout/index.jsx'
 import Successful from './pages/user/succesfulpayment/index.jsx'
 import AboutUs from './pages/user/aboutus/index.jsx'
+import Dairy from './pages/user/categories/dairy.jsx'
+import Juice from './pages/user/categories/juice.jsx'
+import Bakery from './pages/user/categories/bakery.jsx'
+import Fruits from './pages/user/categories/fruits.jsx'
+import Vegetables from './pages/user/categories/vegetables.jsx'
+import Snack from './pages/user/categories/snack.jsx'
 
 
 function App() {
@@ -51,7 +57,13 @@ function App() {
           <Route element={<Blog />} path='blog' />
           <Route element={<ProductsPage />} path='/products' />
           <Route element={<Terms />} path='/terms' />
-          <Route element={<AboutUs />} path='/about' />
+          <Route element={<AboutUs />} path='about' />
+          <Route element={<Dairy />} path='products/dairy' />
+          <Route element={<Snack />} path='products/snack' />
+          <Route element={<Vegetables />} path='products/vegetables' />
+          <Route element={<Fruits />} path='products/fruits' />
+          <Route element={<Bakery />} path='products/bakery' />
+          <Route element={<Juice />} path='products/juice' />
           {
             isLogin ? <Route element={<Checkout />} path='/checkout' /> : null
           }

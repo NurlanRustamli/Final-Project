@@ -26,6 +26,18 @@ export const productsApi = {
         } catch (error) {
             return error.response
         }
+    }, getTypeFilteredProducts: async function (type) {
+        return (await axios.get(`${productsUrl}?type=${type}`)).data
+
+    },getPriceFilteredProducts: async function (discountPrice) {
+        return (await axios.get(`${productsUrl}?discountPrice=${discountPrice}`)).data
+
+    },getWeightFilteredProducts: async function (weight) {
+        return (await axios.get(`${productsUrl}?weight=${weight}`)).data
+
+    },getTimeFilteredProducts: async function (time) {
+        return (await axios.get(`${productsUrl}?time=${time}`)).data
+
     }
 }
 export const usersApi = {
@@ -70,13 +82,13 @@ export const usersApi = {
 export const commentsApi = {
     postComment: async function (comment) {
         try {
-            let res = await axios.post(`${commentsUrl}`,comment)
+            let res = await axios.post(`${commentsUrl}`, comment)
             return res
         } catch (error) {
             return error.response
         }
     },
-    getComment:async function () {
+    getComment: async function () {
 
         try {
             let res = await axios.get(`${commentsUrl}`)
