@@ -2,7 +2,7 @@ import React from 'react'
 
 function Types() {
     return (
-        <section id="fifth-section">
+        <section id="fifth-section" style={{paddingBlock:"90px"}}>
             <div class="container">
                 <div class="row">
                     <div class="fif-product-out ">
@@ -12,7 +12,6 @@ function Types() {
                                 <span>30%</span>
                                 <i class="fa-solid fa-apple-whole"></i>
                                 <h5><a href="">Fruits</a></h5>
-                                <p>320 items</p>
                             </div>
                         </div>
                     </div>
@@ -22,7 +21,6 @@ function Types() {
                             <div class="fif-pr">
                                 <i class="fa-solid fa-bread-slice"></i>
                                 <h5><a href="#">Bakery</a></h5>
-                                <p>65 items</p>
                             </div>
                         </div>
                     </div>
@@ -33,7 +31,6 @@ function Types() {
                                 <span>15%</span>
                                 <i class="fa-solid fa-carrot"></i>
                                 <h5><a href="">Vegetables</a></h5>
-                                <p>548 items</p>
                             </div>
                         </div>
                     </div>
@@ -44,7 +41,6 @@ function Types() {
                                 <span>10%</span>
                                 <i class="fa-solid fa-cow"></i>
                                 <h5><a href="">Dairy & Milk</a></h5>
-                                <p>48 items</p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +50,6 @@ function Types() {
                             <div class="fif-pr">
                                 <i class="fa-solid fa-cookie-bite"></i>
                                 <h5><a href="">Snack & Spice</a></h5>
-                                <p>59 items</p>
                             </div>
                         </div>
                     </div>
@@ -64,7 +59,6 @@ function Types() {
                             <div class="fif-pr">
                                 <i class="fa-solid fa-whiskey-glass"></i>
                                 <h5><a href="">Juice & Drinks</a></h5>
-                                <p>845 items</p>
                             </div>
                         </div>
                     </div>

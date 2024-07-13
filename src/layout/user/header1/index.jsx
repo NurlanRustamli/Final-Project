@@ -18,21 +18,7 @@ function Header1() {
                 </div>
                 <div className="fs-slogan col-xl-4 col-lg-4 col-md-4 text-center">World's Fastest Online Shopping Destination</div>
                 <div className="fs-others col-xl-4 col-lg-4 col-md-4">
-                    <div className="fs-help"><Link className="fs-help" to='/help'>Help?</Link></div>
-                    <div className="fs-lang-name">
-                        <Link to="/">English</Link>
-                        <ul>
-                            <li><Link to='/'>English</Link></li>
-                            <li><Link to="/it">Italiano</Link></li>
-                      </ul>
-                    </div>
-                    <div className="fs-exchange">
-                        <Link className="fs-e-a" >Dollar</Link>
-                        <ul>
-                            <li><Link to='/'>USD $</Link></li>
-                            <li><Link to='/euro'>EURO</Link> </li>
-                        </ul>
-                    </div>
+                    <div className="fs-help"><Link className="fs-help" to='/help'>Help?</Link></div>                
                 </div>
             </div>
         </div>

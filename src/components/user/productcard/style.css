@@ -7,3 +7,6 @@
     align-items: center;
     gap: 20px;
 }
+.six-product{
+    min-height: 440px;
+}

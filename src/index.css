@@ -5,7 +5,8 @@ section#contact {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .maps{
+
+    .maps {
         margin-top: 5rem;
     }
 
@@ -18,19 +19,21 @@ section#contact {
             font-size: 40px;
         }
     }
-label{
-    color: rgb(147, 147, 147);
-    letter-spacing: 0.02rem;
-    text-align: left !important;
-    width: 100%;
-    padding-bottom: 10px;
-}
+
+    label {
+        color: rgb(147, 147, 147);
+        letter-spacing: 0.02rem;
+        text-align: left !important;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
     padding-block: 2rem;
 
     .contact-box {
         text-align: center;
         padding: 40px;
-        background-color: rgb(248 248 251 );
+        background-color: rgb(248 248 251);
         height: 18rem;
         display: flex;
         justify-content: center;
@@ -53,7 +56,9 @@ label{
             color: #fff;
             background-color: #4b5966;
             border-radius: 10px;
-            display: flex;justify-content: center;align-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
     }
@@ -68,20 +73,22 @@ label{
         margin-bottom: 10px;
         display: none;
     }
-    .icon-out{
+
+    .icon-out {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         padding-bottom: 10px;
     }
-    .conheading{
+
+    .conheading {
         height: 70px;
     }
 }
 
 .contact-form {
-   
+
 
     display: flex;
     flex-direction: column;
@@ -119,13 +126,15 @@ label{
             height: 5rem;
 
         }
-.submit-out{
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-}
+
+        .submit-out {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+        }
+
         #submit {
-         display: inline-block;
+            display: inline-block;
             border: 1px solid rgb(0, 128, 98);
             outline: none;
             border-radius: 10px;
@@ -197,7 +206,7 @@ label{
     input {
         border: 1px solid rgb(238 238 238);
         font-size: 14px;
-        min-height:50px;
+        min-height: 50px;
         margin-bottom: 27px;
     }
 
@@ -211,7 +220,7 @@ label{
     }
 
     .login-form {
-        
+
         padding: 0 30px;
         border: 1px solid rgb(238 238 238);
         border-radius: 20px;
@@ -238,10 +247,28 @@ label{
         margin-top: 0;
         width: 30%;
     }
-    .sign{
+
+    .sign {
         width: 100%;
         margin-top: 20px;
     }
 
 
+}
+
+#password {
+    position: relative;
+
+    #regEye {
+        position: absolute;
+        right: 4%;
+        top: 37%;
+        font-size: 20px;
+    }
+    #eye {
+        position: absolute;
+        right: 4%;
+        top: 18%;
+        font-size: 20px;
+    }
 }

@@ -7,7 +7,7 @@ import { GrSecure } from "react-icons/gr";
 
 function Services() {
     return (
-        <section id='services'>
+        <section id='services' style={{paddingBlock:"100px"}}>
             <div className="container">
                 <div className="row header">
                     <h1>Our <span>Services</span></h1>

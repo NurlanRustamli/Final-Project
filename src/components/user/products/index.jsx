@@ -22,7 +22,7 @@ function Products() {
                 
                 <div className="row sixth-main">
                     {
-                        currentPosts.map(item => <div className=' six-product-out col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-6' key={item.id}>
+                        currentPosts.map(item => <div className=' six-product-out col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-6' style={{marginBottom:"100px"}}  key={item.id}>
 
                             <ProductCard product={item} />
                         </div>)

@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 function Slider() {
   return (
-    <>
+    <section style={{paddingBlock:"60px"}}>
       <Swiper
      pagination={true} modules={[Autoplay]} className="mySwiper"
      autoplay={{
@@ -39,7 +39,7 @@ function Slider() {
         </SwiperSlide>
   
     </Swiper>
-    </>
+    </section>
   )
 }
 

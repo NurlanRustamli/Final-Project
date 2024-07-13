@@ -2,6 +2,7 @@ import axios from "axios"
 
 let productsUrl = import.meta.env.VITE_PRODUCTS_API
 let usersUrl = import.meta.env.VITE_USERS_API
+let commentsUrl = import.meta.env.VITE_COMMENTS_API
 
 
 export const productsApi = {
@@ -48,6 +49,41 @@ export const usersApi = {
             return error.response
         }
 
+
+    },
+    checkEmail: async function (email) {
+
+        try {
+            let res = await axios.get(`${usersUrl}`)
+            if (res.data.email === email) {
+                return true
+
+            } else {
+                return false
+            }
+        } catch (error) {
+            return error.response
+        }
+
+    }
+}
+export const commentsApi = {
+    postComment: async function (comment) {
+        try {
+            let res = await axios.post(`${commentsUrl}`,comment)
+            return res
+        } catch (error) {
+            return error.response
+        }
+    },
+    getComment:async function () {
+
+        try {
+            let res = await axios.get(`${commentsUrl}`)
+            return res
+        } catch (error) {
+            return error.response
+        }
 
     }
 }

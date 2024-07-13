@@ -5,6 +5,7 @@ import Search from '../../../components/user/search'
 import { FaShoppingCart } from 'react-icons/fa'
 import "./style.css"
 import { RiAccountCircleFill } from 'react-icons/ri'
+import { MdFavorite } from 'react-icons/md'
 
 function Header2() {
   const [sum, setSum] = useState(0)
@@ -53,7 +54,11 @@ function Header2() {
             <div className="ss-wish">
               
                 <div className="ss-icon">
+                  {favList.length?
+                  <MdFavorite />:
                   <i className="fa-regular fa-heart" />
+
+                }
                 </div>
               
               <div className="ss-info">

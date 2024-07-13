@@ -9,7 +9,7 @@ import './styles.css';
 import { Autoplay, Pagination } from 'swiper/modules';
 function Team() {
     return (
-        <section id='team'>
+        <section id='team' style={{paddingBlock:"90px"}}>
             <div className="container">
                 <Swiper
                     slidesPerView={5}

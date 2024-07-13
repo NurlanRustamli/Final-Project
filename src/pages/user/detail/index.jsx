@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addToCartAction, countDecrement, removeFromCart } from '../../../redux/actions/cartListAction'
 import Products from '../../../components/user/products'
 import AdditionalProducts from '../../../components/user/additionalproducts'
+import Comments from '../../../components/user/comments'
+import CommentsSection from '../../../components/user/commentsSection'
 
 function Detail() {
   const { id } = useParams()
@@ -49,7 +51,7 @@ function Detail() {
                 <h3>Weight: <span>{product.weight} kg</span></h3>
               </div>
               <div className="detail-cart">
-                <div className="img-hover-icons" onClick={() => isLogin ? product.count===1 ?dispatch(removeFromCart({ ...product })):dispatch(countDecrement({ ...product })) : changeNav("/login")}>
+                <div className="img-hover-icons" onClick={() => isLogin ? product.count === 1 ? dispatch(removeFromCart({ ...product })) : dispatch(countDecrement({ ...product })) : changeNav("/login")}>
                   <BsCartDashFill />
                 </div>
                 <h4>{product.count}</h4>
@@ -57,12 +59,20 @@ function Detail() {
                   <BsCartPlusFill />
                 </div>
               </div>
+              {
+                
+              }
+          <Comments  productId={id}/>
+
             </div>
           </div>
         </div>
         <div className="row">
-          <header style={{textAlign:'center',width:"100%",paddingBlock:"20px"}}><h1>Related <span style={{color:"rgb(0, 128, 83)"}}>Products</span> </h1>
-          <p>Browse The Collection of Top Products</p>
+          {/* <CommentsSection/> */}
+        </div>
+        <div className="row">
+          <header style={{ textAlign: 'center', width: "100%", paddingBlock: "20px" }}><h1>Related <span style={{ color: "rgb(0, 128, 83)" }}>Products</span> </h1>
+            <p>Browse The Collection of Top Products</p>
           </header>
           <AdditionalProducts />
         </div>

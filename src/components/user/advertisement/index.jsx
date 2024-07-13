@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Advertisement() {
   return (
-    <div className='container'>
+    <div className='container' style={{paddingBlock:"70px 90px"}}>
       <div className="advertisement">
         <div className="poster1">
           <img src="https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/banner/1.jpg" alt="" />

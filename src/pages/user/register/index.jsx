@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { usersApi } from '../../../services/base'
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa6'
 
 let cloudApi = import.meta.env.VITE_CLOUD_API
 let cloudName = import.meta.env.VITE_CLOUD_NAME
@@ -13,6 +14,9 @@ function Register() {
     const email = useRef(null)
     const password = useRef(null)
     const nav = useNavigate()
+    const [eyeData, setEyeData] = useState(false)
+
+
     // const [userData, setUserData] = useState({
     //     fullName:"",
     //     email:"",
@@ -27,22 +31,29 @@ function Register() {
         axios.post(`${cloudApi}/${cloudName}/upload`, loginFormData)
             .then(res => {
                 console.log(res)
-                usersApi.registerUser({
-                    fullName: fullName.current.value,
-                    email: email.current.value,
-                    password: password.current.value,
-                    avatar: res.data.url
-                }).then(res => {
-                    if (res.status === 201) {
-                        alert("Qeydiyyat Tamamlandı")
-                        fullName.current.value = ""
-                        email.current.value = ""
-                        password.current.value = ""
-                        nav("/login")
-                    } else {
-                        alert(res.statusText)
-                    }
-                })
+                if (usersApi.checkEmail(email.current.value)) {
+                    alert("This mail has already registered")
+                   
+                }else{
+                    usersApi.registerUser({
+                        fullName: fullName.current.value,
+                        email: email.current.value,
+                        password: password.current.value,
+                        avatar: res.data.url
+                    }).then(res => {
+                        if (res.status === 201) {
+                            alert("Qeydiyyat Tamamlandı")
+                            fullName.current.value = ""
+                            email.current.value = ""
+                            password.current.value = ""
+                            nav("/login")
+                        } else {
+                            alert(res.statusText)
+                        }
+                    })
+                }
+                
+                
             })
     }
 
@@ -58,25 +69,42 @@ function Register() {
 
                 <div className="row justify-content-between">
 
-                    <div className="col-md-6 col-xl-6 col-lg-6 col-sm-8 login-form contact-form" style={{padding:"20px"}}>
+                    <div className="col-md-6 col-xl-6 col-lg-6 col-sm-8 login-form contact-form" style={{ padding: "20px" }}>
                         <form onSubmit={registerUser} >
-                            <label htmlFor="">Full Name:</label>
 
-                            <input type="text" id='userFullName' name='useremail'
-                                placeholder='Your full name ....' required ref={fullName} />
+                            <div style={{ width: "100%" }}>
+                                <label htmlFor="">Full Name:</label>
+
+                                <input type="text" id='userFullName' name='useremail'
+                                    placeholder='Your full name ....' required ref={fullName} />
+                                <br />
+                            </div>
+
+                            <div style={{ width: "100%" }}>
+                                <label htmlFor="">Email:</label>
+                                <input type="email" id='useremail' name='useremail'
+                                    placeholder='Your email address ....' required ref={email} />
+                                <br />
+                            </div>
+
+
+                            <div id='password' style={{ width: "100%" }}>
+                                <label htmlFor="">Password:</label>
+                                <input type={eyeData ? "password" : "text"} placeholder='Your Password ....' onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} ref={password} />
+                                {eyeData ?
+                                    <div id='regEye' onClick={() => setEyeData(false)}><FaRegEye /></div> :
+                                    <div id='regEye' onClick={() => setEyeData(true)}><FaRegEyeSlash /></div>
+
+                                }
+                            </div>
+
                             <br />
-                            <label htmlFor="">Email:</label>
-
-                            <input type="email" id='useremail' name='useremail'
-                                placeholder='Your email address ....' required ref={email}/>
-                            <br />
-
-                            <label htmlFor="">Password:</label>
-                            <input type="password" placeholder='Your Password ....' ref={password} />
-
-                            <br />
+                            <div style={{ width: "100%" }}>
                             <label htmlFor="">Avatar:</label>
                             <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+                            </div>
+
+                          
                             <div className="sign d-flex justify-content-between align-items-center">
                                 <div className="register">
                                     <Link to="/login">Login</Link>

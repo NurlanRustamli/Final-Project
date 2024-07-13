@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 
 function Profile() {
+  // const loginData = JSON.parse(localStorage.getItem("LoginInfo"))
   const nav = useNavigate()
   const { userData } = useSelector(state => state)
   const dispatch = useDispatch()

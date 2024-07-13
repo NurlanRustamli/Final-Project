@@ -42,9 +42,7 @@ const changeNav=useNavigate()
             <BsCartDashFill />
           </div>
 
-          <div className="img-hover-icons">
-            <FaCodeCompare />
-          </div>
+    
           <div className="img-hover-icons" onClick={()=>isLogin?dispatch(removeFromCart(props.product)):changeNav("/login")}>
           <MdRemoveShoppingCart />
           </div>
