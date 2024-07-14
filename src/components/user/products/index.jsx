@@ -16,7 +16,7 @@ function Products() {
 
     const lastPostIndex = currentPage * postsPerPage
     const firstPostIndex = lastPostIndex - postsPerPage;
-    const currentPosts = (sortedData.length?sortedData:products).slice(firstPostIndex, lastPostIndex)
+    const currentPosts = (sortedData?.length?sortedData:products).slice(firstPostIndex, lastPostIndex)
     return (
         <section id='sixth-section products'>
             <div className='container'>
@@ -28,7 +28,7 @@ function Products() {
                             <ProductCard product={item} />
                         </div>)
                     }
-                    <Pagination totalPosts={(sortedData.length?sortedData:products).length} postsPerPage={postsPerPage}
+                    <Pagination totalPosts={(sortedData?.length?sortedData:products).length} postsPerPage={postsPerPage}
                         setCurrentPage={setCurrentPage}
                         currentPage={currentPage} />
 
