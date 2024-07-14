@@ -15,9 +15,9 @@ export const productsApi = {
     ,
     addProduct: function (params) {
         axios.post(productsUrl, params)
-    }, changeProduct: async function (rating,product) {
+    }, changeProduct: async function (rating, product) {
         try {
-            const response = await axios.put(`${productsUrl}/${product.id}`, {...product,rating:rating  });
+            const response = await axios.put(`${productsUrl}/${product.id}`, { ...product, rating: rating });
             return response.data;
         } catch (error) {
             console.error('Error updating product rating', error);
@@ -60,6 +60,7 @@ export const usersApi = {
 
         try {
             let res = await axios.get(`${usersUrl}`)
+            console.log(res)
             return res
         } catch (error) {
             return error.response
@@ -79,15 +80,18 @@ export const usersApi = {
 
     },
     checkEmail: async function (email) {
-
+        console.log(email)
         try {
             let res = await axios.get(`${usersUrl}`)
-            if (res.data.email === email) {
-                return true
 
+            const foundItem = res.data.find(item => item.email === email);
+            console.log(foundItem)
+            if (foundItem) {
+                return true;
             } else {
-                return false
+                return false;
             }
+
         } catch (error) {
             return error.response
         }
@@ -123,9 +127,9 @@ export const blogsApi = {
     ,
     addBlog: function (params) {
         axios.post(blogsUrl, params)
-    }, changeBlog: async function (rating,product) {
+    }, changeBlog: async function (rating, product) {
         try {
-            const response = await axios.put(`${blogsUrl}/${product.id}`, {...product,rating:rating  });
+            const response = await axios.put(`${blogsUrl}/${product.id}`, { ...product, rating: rating });
             return response.data;
         } catch (error) {
             console.error('Error updating product rating', error);
@@ -152,8 +156,8 @@ export const blogsApi = {
     }, getTypeFilteredBlogs: async function (type) {
         return (await axios.get(`${blogsUrl}?type=${type}`)).data
 
-     }
-     //, getTimeFilteredProducts: async function (time) {
+    }
+    //, getTimeFilteredProducts: async function (time) {
     //     return (await axios.get(`${blogsUrl}?time=${time}`)).data
 
     // }

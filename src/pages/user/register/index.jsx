@@ -23,40 +23,80 @@ function Register() {
     //     password:"",
     //     avatar:""
     // })
-    const registerUser = (e) => {
-        e.preventDefault()
+    // const registerUser = async (e) => {
+    //     e.preventDefault()
+    //     const loginFormData = new FormData();
+    //     loginFormData.append("file", file);
+    //     loginFormData.append("upload_preset", cloudPreset)
+    //     axios.post(`${cloudApi}/${cloudName}/upload`, loginFormData)
+    //     const emailExists = await usersApi.checkEmail(email.current.value)
+    //     console.log(emailExists)
+
+
+    //         .then(res => {
+    //             if (emailExists) {
+    //                 alert("This mail has already registered")
+                   
+    //             }else{
+    //                 usersApi.registerUser({
+    //                     fullName: fullName.current.value,
+    //                     email: email.current.value,
+    //                     password: password.current.value,
+    //                     avatar: res.data.url
+    //                 }).then(res => {
+    //                     if (res.status === 201) {
+    //                         alert("Qeydiyyat Tamamlandı")
+    //                         fullName.current.value = ""
+    //                         email.current.value = ""
+    //                         password.current.value = ""
+    //                         nav("/login")
+    //                     } else {
+    //                         alert(res.statusText)
+    //                     }
+    //                 })
+    //             }   
+    //         }
+    //         )
+    // }
+
+    const registerUser = async (e) => {
+    e.preventDefault();
+    
+    try {
         const loginFormData = new FormData();
         loginFormData.append("file", file);
-        loginFormData.append("upload_preset", cloudPreset)
-        axios.post(`${cloudApi}/${cloudName}/upload`, loginFormData)
-            .then(res => {
-                console.log(res)
-                // if (usersApi.checkEmail(email.current.value)) {
-                //     alert("This mail has already registered")
-                   
-                // }else{
-                    usersApi.registerUser({
-                        fullName: fullName.current.value,
-                        email: email.current.value,
-                        password: password.current.value,
-                        avatar: res.data.url
-                    }).then(res => {
-                        if (res.status === 201) {
-                            alert("Qeydiyyat Tamamlandı")
-                            fullName.current.value = ""
-                            email.current.value = ""
-                            password.current.value = ""
-                            nav("/login")
-                        } else {
-                            alert(res.statusText)
-                        }
-                    })
-                }
-                
-                
-            // }
-            )
+        loginFormData.append("upload_preset", cloudPreset);
+
+        const uploadResponse = await axios.post(`${cloudApi}/${cloudName}/upload`, loginFormData);
+        console.log(uploadResponse)
+
+        const emailExists = await usersApi.checkEmail(email.current.value);
+
+        if (emailExists) {
+            alert("This email has already been registered");
+        } else {
+            const registerResponse = await usersApi.registerUser({
+                fullName: fullName.current.value,
+                email: email.current.value,
+                password: password.current.value,
+                avatar: uploadResponse.data.url
+            });
+
+            if (registerResponse.status === 201) {
+                alert("Registration Completed");
+                fullName.current.value = "";
+                email.current.value = "";
+                password.current.value = "";
+                nav("/login");
+            } else {
+                alert(registerResponse.statusText);
+            }
+        }
+    } catch (error) {
+        console.error(error);
+        alert("An error occurred during registration. Please try again.");
     }
+};
 
     return (
         <section id='login'>
