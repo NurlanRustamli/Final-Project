@@ -56,6 +56,11 @@ export const productsApi = {
     }
 }
 export const usersApi = {
+   getAllUsers: async function () {
+
+        return (await axios.get(usersUrl)).data
+
+    },
     loginUser: async function () {
 
         try {
