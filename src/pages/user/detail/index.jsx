@@ -19,27 +19,27 @@ function Detail() {
 
   useEffect(() => {
     const fetchProduct = async () => {
-        try {
-            const response = await productsApi.getSingleProduct(id);
-            const productData = response; // Adjust this if your response structure is different
-            const foundProduct = cartList.find(item => item.id === productData.id);
+      try {
+        const response = await productsApi.getSingleProduct(id);
+        const productData = response; // Adjust this if your response structure is different
+        const foundProduct = cartList.find(item => item.id === productData.id);
 
-            if (foundProduct) {
-                setProduct(foundProduct);
-            } else {
-                setProduct({ ...productData, count: 0 });
-            }
-        } catch (error) {
-            console.error('Error fetching product', error);
+        if (foundProduct) {
+          setProduct(foundProduct);
+        } else {
+          setProduct({ ...productData, count: 0 });
         }
+      } catch (error) {
+        console.error('Error fetching product', error);
+      }
     };
 
     fetchProduct();
-}, [id, cartList]);
+  }, [id, cartList]);
 
-if (!product) {
+  if (!product) {
     return <div>Loading...</div>;
-}
+  }
 
   return (
     <section className="detail-product">
@@ -79,10 +79,10 @@ if (!product) {
         </div>
         {/* <div className="row">
         </div> */}
-        </div>
+      </div>
       <Comments productId={id} userName={userData.fullName} productName={product.name} product={product} productCount={product.count} />
 
-        <div className='container'>
+      <div className='container'>
         <div className="row">
           <header style={{ textAlign: 'center', width: "100%", paddingBlock: "20px" }}><h1>Related <span style={{ color: "rgb(0, 128, 83)" }}>Products</span> </h1>
             <p>Browse The Collection of Top Products</p>

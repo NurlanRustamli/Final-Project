@@ -35,6 +35,15 @@ import Bakery from './pages/user/categories/bakery.jsx'
 import Fruits from './pages/user/categories/fruits.jsx'
 import Vegetables from './pages/user/categories/vegetables.jsx'
 import Snack from './pages/user/categories/snack.jsx'
+import SixKg from './pages/user/weights/6kg.jsx'
+import FiveKg from './pages/user/weights/5kg.jsx'
+import FourKg from './pages/user/weights/4kg.jsx'
+import ThreeKg from './pages/user/weights/3kg.jsx'
+import TwoKg from './pages/user/weights/2kg.jsx'
+import OneKg from './pages/user/weights/1kg.jsx'
+import NineKg from './pages/user/weights/9kg.jsx'
+import EightKg from './pages/user/weights/8kg.jsx'
+import SevenKg from './pages/user/weights/7kg.jsx'
 
 
 function App() {
@@ -64,6 +73,15 @@ function App() {
           <Route element={<Fruits />} path='products/fruits' />
           <Route element={<Bakery />} path='products/bakery' />
           <Route element={<Juice />} path='products/juice' />
+          <Route element={<OneKg />} path='products/onekg' />
+          <Route element={<TwoKg />} path='products/twokg' />
+          <Route element={<ThreeKg />} path='products/threekg' />
+          <Route element={<FourKg />} path='products/fourkg' />
+          <Route element={<FiveKg />} path='products/fivekg' />
+          <Route element={<SixKg />} path='products/sixkg' />
+          <Route element={<SevenKg />} path='products/sevenkg' />
+          <Route element={<EightKg />} path='products/eightkg' />
+          <Route element={<NineKg />} path='products/ninekg' />
           {
             isLogin ? <Route element={<Checkout />} path='/checkout' /> : null
           }

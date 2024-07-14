@@ -272,3 +272,34 @@ section#contact {
         font-size: 20px;
     }
 }
+#types{
+    padding-block: 10px 100px;
+
+    .filterproducts{
+        border: 1px solid #e5e7eb;
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start;
+        padding: 20px;
+    }
+}
+#sidebarsec{
+    padding-inline: 10px;
+    .sidebar{
+        width: 100%;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+    }
+    header{
+        h3{
+            font-size: 20px;
+            padding-block: 10px;
+        }
+    }
+    main{
+        h4{
+            padding-bottom: 10px;
+        }
+    }
+}
