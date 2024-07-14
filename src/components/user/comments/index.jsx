@@ -6,7 +6,7 @@ import CommentsSection from '../commentsSection';
 function Comments(props) {
     const { isLogin } = useSelector(state => state)
     const productId = props.productId
-    const productName = props.productName
+    const product = props.product
     const userName = props.userName
     const commentInput = useRef()
     const commentSelect = useRef()
@@ -32,12 +32,15 @@ function Comments(props) {
             rating: rating,
             username: isLogin ? userName : name
         };
+       
         commentsApi.postComment(commentPost)
             .then(response => {
+                console.log(rating)
                 console.log('Comment posted successfully', response);
                 // Handle success (e.g., clear form, show success message)
                 commentInput.current.value = ""
                 commentSelect.current.value = "1"
+                console.log(rating)
 
             })
             .catch(error => {
@@ -45,6 +48,7 @@ function Comments(props) {
                 // Handle error (e.g., show error message)
             });
     };
+    console.log(rating)
     const fetchComments = () => {
         commentsApi.getComment()
             .then(res => res.data)
@@ -58,7 +62,7 @@ function Comments(props) {
         const total = relevantComments.reduce((acc, comment) => acc + comment.rating, 0);
         const averageRating = relevantComments.length ? Math.round(total / relevantComments.length) : 0;
         setTotalRating(averageRating);
-        productsApi.changeProduct(averageRating, productId)
+        productsApi.changeProduct(totalRating, product)
             .then(response => {
                 console.log('Product rating updated successfully', response);
             })

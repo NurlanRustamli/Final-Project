@@ -2,7 +2,9 @@ import React from 'react'
 
 function Sidebar() {
   return (
-    <section id='sidebar'></section>
+    <section id='sidebar'>
+      
+    </section>
   )
 }
 

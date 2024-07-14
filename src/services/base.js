@@ -14,9 +14,9 @@ export const productsApi = {
     ,
     addProduct: function (params) {
         axios.post(productsUrl, params)
-    }, changeProduct: async function (rating,id) {
+    }, changeProduct: async function (rating,product) {
         try {
-            const response = await axios.patch(`${productsUrl}/${id}`, { rating: rating });
+            const response = await axios.put(`${productsUrl}/${product.id}`, {...product,rating:rating  });
             return response.data;
         } catch (error) {
             console.error('Error updating product rating', error);

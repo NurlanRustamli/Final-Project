@@ -80,7 +80,7 @@ if (!product) {
         {/* <div className="row">
         </div> */}
         </div>
-      <Comments productId={id} userName={userData.fullName} productName={product.name} />
+      <Comments productId={id} userName={userData.fullName} productName={product.name} product={product} productCount={product.count} />
 
         <div className='container'>
         <div className="row">
