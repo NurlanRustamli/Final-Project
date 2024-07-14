@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../../../components/user/sidebarFilter'
 import { productsApi } from '../../../services/base'
-import SortedProducts from '../../../components/user/sortedproducst'
 
 
 function ProductsPage() {
-    const [products, setProducts] = useState([])
-    useEffect(() => {
-        productsApi.getAllProduct().then(data => setProducts(data), [])
-       
+  const [products, setProducts] = useState([])
+  const [sortedData, setSortedData] = useState([])
+  const [price, setPrice] = useState(100)
+
+  useEffect(() => {
+    productsApi.getAllProduct().then(data => {
+      setProducts(data)
+      setSortedData(data)
     })
-    const [sortedData,setSortedData] = useState([])
+  }, [])
+
+  const handlePriceChange = (value) => {
+    setPrice(value)
+    const filteredProducts = products.filter(product => product.discountPrice <= value)
+    setSortedData(filteredProducts)
+  }
 
     const sortProducts = (e) => {   
         let sortedArray = [];
@@ -39,13 +48,11 @@ return 0
             <div className="container">
 
             <div className="products-header">
-                <div className=" section-heading  col-lg-12 col-xl-12 col-xs-12 col-sm-12 col-md-12 d-flex text-center" style={{justifyContent:"flex-end"}}>
-                    <div>
+                <div className=" section-heading  col-lg-12 col-xl-12 col-xs-12 col-sm-12 col-md-12 text-center">
                     <h2 className='Mainheading text-center'>Products</h2>
                     <p className='Subheading text-center'>Shop online for our products and get free shipping!</p>
-                    </div>
-                   
-                    <div className="sorting" >
+                </div>
+                <div className="sorting">
                     <select name="" id="productssort" onChange={sortProducts}>
                         <option value="">Sort by</option>
                         <option value="1">Low to High</option>
@@ -54,15 +61,13 @@ return 0
                         <option value="4">Z-A</option>
                     </select>
                 </div>
-                </div>
-               
             </div>
             <div className="row">
             <div className="col-lg-3 col-xl-3 col-md-4 col-sm-6">
                 <Sidebar />
             </div>
             <div className="col-lg-9 col-xl-9 col-md-8 col-sm-6 filterproducts">
-                <SortedProducts data={sortedData}/>
+                <Products data={sortedData}/>
             </div>
             </div>
           
