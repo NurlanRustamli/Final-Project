@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../../../components/user/sidebarFilter'
 import { productsApi } from '../../../services/base'
-import SortedProducts from '../../../components/user/sortedproducst'
+import Products from '../../../components/user/products'
 
 function ProductsPage() {
   const [products, setProducts] = useState([])

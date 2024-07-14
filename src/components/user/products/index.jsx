@@ -4,7 +4,8 @@ import './style.css'
 import Pagination from '../pagination'
 import { productsApi } from '../../../services/base'
 
-function Products() {
+function Products(props) {
+    const sortedData = props.data
     const [products, setProducts] = useState([])
     useEffect(() => {
         productsApi.getAllProduct().then(data => setProducts(data), [])
