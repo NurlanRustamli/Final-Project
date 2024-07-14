@@ -14,9 +14,23 @@ export const productsApi = {
     ,
     addProduct: function (params) {
         axios.post(productsUrl, params)
+    }, changeProduct: async function (rating,id) {
+        try {
+            const response = await axios.patch(`${productsUrl}/${id}`, { rating: rating });
+            return response.data;
+        } catch (error) {
+            console.error('Error updating product rating', error);
+            throw error;
+        }
     },
     getSingleProduct: async function (id) {
-        return (await axios.get(`${productsUrl}?id=${id}`)).data[0]
+        try {
+            const response = await axios.get(`${productsUrl}/${id}`);
+            return response.data; // Assuming the response data is the product object
+        } catch (error) {
+            console.error('Error fetching single product', error);
+            throw error;
+        }
     },
     getSearchProduct: async function (name) {
         try {
@@ -29,13 +43,13 @@ export const productsApi = {
     }, getTypeFilteredProducts: async function (type) {
         return (await axios.get(`${productsUrl}?type=${type}`)).data
 
-    },getPriceFilteredProducts: async function (discountPrice) {
+    }, getPriceFilteredProducts: async function (discountPrice) {
         return (await axios.get(`${productsUrl}?discountPrice=${discountPrice}`)).data
 
-    },getWeightFilteredProducts: async function (weight) {
+    }, getWeightFilteredProducts: async function (weight) {
         return (await axios.get(`${productsUrl}?weight=${weight}`)).data
 
-    },getTimeFilteredProducts: async function (time) {
+    }, getTimeFilteredProducts: async function (time) {
         return (await axios.get(`${productsUrl}?time=${time}`)).data
 
     }

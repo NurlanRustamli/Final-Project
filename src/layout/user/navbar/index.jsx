@@ -59,7 +59,7 @@ function Navbar() {
             <div onClick={()=>scroolToTop()}><Link to='/' >Home</Link></div>
             <div onClick={()=>scroolToTop()}><Link to='/contact'>Contact</Link></div>
             <div onClick={()=>scroolToTop()}><Link to='/blog' >Blog</Link></div>
-            <div onClick={()=>scroolToTop()}><Link to='/products' >Products</Link></div>
+            <div onClick={()=>scroolToTop()}><Link to='/products' >Shop</Link></div>
           </div>
           {/* <div className="col-lg-3 col-xl-3 col-md-4 col-sm-4"></div> */}
         </div>
