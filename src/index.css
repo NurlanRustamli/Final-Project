@@ -303,3 +303,15 @@ section#contact {
         }
     }
 }
+.sorting{
+    width: 30%;
+    min-height: 60px;
+}
+#productssort{
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #e7e5eb;
+}

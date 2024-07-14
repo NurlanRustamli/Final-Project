@@ -44,7 +44,7 @@ return 0
                     <p className='Subheading text-center'>Shop online for our products and get free shipping!</p>
                 </div>
                 <div className="sorting">
-                    <select name="" id="" onChange={sortProducts}>
+                    <select name="" id="productssort" onChange={sortProducts}>
                         <option value="">Sort by</option>
                         <option value="1">Low to High</option>
                         <option value="2">High to Low</option>
