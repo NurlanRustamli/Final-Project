@@ -304,6 +304,10 @@ section#contact {
     }
 }
 .sorting{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
     width: 30%;
     min-height: 60px;
 }

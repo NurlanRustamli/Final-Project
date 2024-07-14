@@ -31,10 +31,10 @@ function Register() {
         axios.post(`${cloudApi}/${cloudName}/upload`, loginFormData)
             .then(res => {
                 console.log(res)
-                if (usersApi.checkEmail(email.current.value)) {
-                    alert("This mail has already registered")
+                // if (usersApi.checkEmail(email.current.value)) {
+                //     alert("This mail has already registered")
                    
-                }else{
+                // }else{
                     usersApi.registerUser({
                         fullName: fullName.current.value,
                         email: email.current.value,
@@ -54,7 +54,8 @@ function Register() {
                 }
                 
                 
-            })
+            // }
+            )
     }
 
     return (

@@ -18,15 +18,7 @@ function SevenKg() {
                     <h2 className='Mainheading text-center'>Products</h2>
                     <p className='Subheading text-center'>Shop online for our products and get free shipping!</p>
                 </div>
-                <div className="sorting">
-                        <select name="" id="">
-                            <option value="1">High to Low</option>
-                            <option value="2">Low to High</option>
-                            <option value="3">A-Z</option>
-                            <option value="4">Z-A</option>
-                        </select>
-                    </div>
-
+   
             </div>
 
                 <div className="row">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Products from '../../../components/user/products'
 import Sidebar from '../../../components/user/sidebarFilter'
 import { productsApi } from '../../../services/base'
+import SortedProducts from '../../../components/user/sortedproducst'
 
 
 function ProductsPage() {
@@ -39,11 +39,13 @@ return 0
             <div className="container">
 
             <div className="products-header">
-                <div className=" section-heading  col-lg-12 col-xl-12 col-xs-12 col-sm-12 col-md-12 text-center">
+                <div className=" section-heading  col-lg-12 col-xl-12 col-xs-12 col-sm-12 col-md-12 d-flex text-center" style={{justifyContent:"flex-end"}}>
+                    <div>
                     <h2 className='Mainheading text-center'>Products</h2>
                     <p className='Subheading text-center'>Shop online for our products and get free shipping!</p>
-                </div>
-                <div className="sorting">
+                    </div>
+                   
+                    <div className="sorting" >
                     <select name="" id="productssort" onChange={sortProducts}>
                         <option value="">Sort by</option>
                         <option value="1">Low to High</option>
@@ -52,13 +54,15 @@ return 0
                         <option value="4">Z-A</option>
                     </select>
                 </div>
+                </div>
+               
             </div>
             <div className="row">
             <div className="col-lg-3 col-xl-3 col-md-4 col-sm-6">
                 <Sidebar />
             </div>
             <div className="col-lg-9 col-xl-9 col-md-8 col-sm-6 filterproducts">
-                <Products data={sortedData}/>
+                <SortedProducts data={sortedData}/>
             </div>
             </div>
           

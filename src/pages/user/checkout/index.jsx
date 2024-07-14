@@ -5,12 +5,13 @@ import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 
 function Checkout() {
-  const { cartList } = useSelector(state => state)
+  const { cartList ,userData} = useSelector(state => state)
   const changeNav = useNavigate()
   function payMethod(e) {
     e.preventDefault()
     changeNav("/successful")
   }
+  console.log(userData)
   return (
     <section id="cart-sec">
       <div className="container">
@@ -93,12 +94,12 @@ function Checkout() {
                         <label htmlFor="" style={{ width: "100%" }}>First Name:</label>
                         <br />
                         <input type="text" id='firstname' name='firstname'
-                          placeholder='Your First name...' required style={{ width: "100%" }} />
+                          placeholder='Your First name...'value={userData.fullName.slice(0,userData.fullName.indexOf(" "))} required style={{ width: "100%" }} />
                       </div>
                       <div style={{ width: "45%" }}> <label htmlFor="" style={{ width: "100%" }}>Last Name:</label>
                         <br />
                         <input type="text" id='lastname' name='lastname'
-                          placeholder='Your Last name...' required style={{ width: "100%" }} /></div>
+                          placeholder='Your Last name...' value={userData.fullName.slice(userData.fullName.indexOf(" ")+1)} required style={{ width: "100%" }} /></div>
 
 
                     </div>
