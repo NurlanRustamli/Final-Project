@@ -1,6 +1,7 @@
 import axios from "axios"
 
 let productsUrl = import.meta.env.VITE_PRODUCTS_API
+let blogsUrl = import.meta.env.VITE_BLOGS_API
 let usersUrl = import.meta.env.VITE_USERS_API
 let commentsUrl = import.meta.env.VITE_COMMENTS_API
 
@@ -112,4 +113,48 @@ export const commentsApi = {
         }
 
     }
+}
+export const blogsApi = {
+    getAllBlog: async function () {
+
+        return (await axios.get(blogsUrl)).data
+
+    }
+    ,
+    addBlog: function (params) {
+        axios.post(blogsUrl, params)
+    }, changeBlog: async function (rating,product) {
+        try {
+            const response = await axios.put(`${blogsUrl}/${product.id}`, {...product,rating:rating  });
+            return response.data;
+        } catch (error) {
+            console.error('Error updating product rating', error);
+            throw error;
+        }
+    },
+    getSingleBlog: async function (id) {
+        try {
+            const response = await axios.get(`${blogsUrl}/${id}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching single blog:', error);
+            throw error;
+        }
+    },
+    getSearchBlog: async function (title) {
+        try {
+            let res = (await axios.get(`${blogsUrl}?title=${title}`))
+            return res
+
+        } catch (error) {
+            return error.response
+        }
+    }, getTypeFilteredBlogs: async function (type) {
+        return (await axios.get(`${blogsUrl}?type=${type}`)).data
+
+     }
+     //, getTimeFilteredProducts: async function (time) {
+    //     return (await axios.get(`${blogsUrl}?time=${time}`)).data
+
+    // }
 }

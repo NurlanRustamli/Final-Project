@@ -1,9 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Products from '../../../components/user/products'
 import Sidebar from '../../../components/user/sidebarFilter'
+import { productsApi } from '../../../services/base'
 
 
 function ProductsPage() {
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        productsApi.getAllProduct().then(data => setProducts(data), [])
+       
+    })
+    const [sortedData,setSortedData] = useState([])
+
+    const sortProducts = (e) => {   
+        let sortedArray = [];
+        if (e.target.value === "1") {
+            sortedArray = [...products].sort((a, b) => a.discountPrice - b.discountPrice);
+        } else if (e.target.value === "2") {
+            sortedArray = [...products].sort((a, b) => b.discountPrice - a.discountPrice);
+        }else if(e.target.value === "3"){
+            sortedArray = [...products].sort((a, b) => {
+                if(a.name.toLowerCase()<b.name.toLowerCase()) return -1
+                if(a.name.toLowerCase()>b.name.toLowerCase()) return 1
+return 0
+            });
+        }else if(e.target.value === "4"){
+            sortedArray = [...products].sort((a, b) => {
+                if(a.name.toLowerCase()<b.name.toLowerCase()) return 1
+                if(a.name.toLowerCase()>b.name.toLowerCase()) return -1
+return 0
+            });
+        }
+        setSortedData(sortedArray);
+        console.log(sortedArray,sortedData)
+    };
     return (
         <div id='types'>
             <div className="container">
@@ -14,9 +44,10 @@ function ProductsPage() {
                     <p className='Subheading text-center'>Shop online for our products and get free shipping!</p>
                 </div>
                 <div className="sorting">
-                    <select name="" id="">
-                        <option value="1">High to Low</option>
-                        <option value="2">Low to High</option>
+                    <select name="" id="" onChange={sortProducts}>
+                        <option value="">Sort by</option>
+                        <option value="1">Low to High</option>
+                        <option value="2">High to Low</option>
                         <option value="3">A-Z</option>
                         <option value="4">Z-A</option>
                     </select>
@@ -27,7 +58,7 @@ function ProductsPage() {
                 <Sidebar />
             </div>
             <div className="col-lg-9 col-xl-9 col-md-8 col-sm-6 filterproducts">
-                <Products />
+                <Products data={sortedData}/>
             </div>
             </div>
           

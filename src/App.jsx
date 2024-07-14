@@ -44,6 +44,7 @@ import OneKg from './pages/user/weights/1kg.jsx'
 import NineKg from './pages/user/weights/9kg.jsx'
 import EightKg from './pages/user/weights/8kg.jsx'
 import SevenKg from './pages/user/weights/7kg.jsx'
+import BlogDetailPage from './pages/blogDetailPage/index.jsx'
 
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
           <Route element={<SevenKg />} path='products/sevenkg' />
           <Route element={<EightKg />} path='products/eightkg' />
           <Route element={<NineKg />} path='products/ninekg' />
+          <Route element={<BlogDetailPage />} path='blog/:id' />
           {
             isLogin ? <Route element={<Checkout />} path='/checkout' /> : null
           }

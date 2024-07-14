@@ -23,10 +23,10 @@ function BottomNavbar() {
             <div className="nav-left col-lg-2 col-xl-2 col-md-4 col-sm-6">
               <h3>Category</h3>
               <ul>
-                <li ><Link>Dairy</Link></li>
-                <li ><Link>Snack</Link></li>
-                <li ><Link>Fast</Link></li>
-                <li ><Link>Juice</Link></li>
+                <li ><Link to="/products/dairy">Dairy</Link></li>
+                <li ><Link to="/products/snack">Snack</Link></li>
+                <li ><Link to="/products/bakery">Bakery</Link></li>
+                <li ><Link to="/products/juice">Juice</Link></li>
               </ul>
             </div>
             <div className="nav-lm col-lg-2 col-xl-2 col-md-3 col-sm-4">

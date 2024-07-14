@@ -1,0 +1,54 @@
+#blogdetailsec {
+
+    padding-block: 30px 100px;
+
+    header {
+        h1 {
+            padding-block: 10px 30px;
+            text-align: center;
+            color: #2c8166;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        border-radius: 10px;
+        padding-block: 30px;
+
+        img {
+            height: 500px;
+        }
+    }
+
+    main {
+        h3 {
+            color: rgb(153 153 153);
+            font-weight: 300;
+            padding-block: 10px 20px;
+        }
+
+        h1 {
+            font-weight: 500;
+            font-size: 22px;
+            padding-block: 0 10px;
+            color: rgb(75 89 102);
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.15rem;
+            padding-block: 0 20px;
+            text-align: left;
+        }
+
+        .footerimgs {
+            padding-block: 30px;
+
+            img {
+
+                width: 49%;
+            }
+        }
+    }
+}

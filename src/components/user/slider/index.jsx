@@ -25,7 +25,7 @@ function Slider() {
           <h5>Starting at <span className="price">20.99$</span>
             </h5>
           <h2>Organic & Healthy Vegetables</h2>
-          <Link className="shopNow">Shop Now </Link>
+          <Link className="shopNow" to="/products">Shop Now </Link>
         </div>
 
       </SwiperSlide>
