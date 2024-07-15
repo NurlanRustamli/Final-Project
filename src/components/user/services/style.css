@@ -14,8 +14,10 @@
         }
     }
     .service-out{
+        height: fit-content;
         width: 24%;
         .service{
+            min-height: 240px;
             padding: 30px;
             width: 100%;
             border: 1px solid #e5e7eb;

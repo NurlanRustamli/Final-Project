@@ -41,7 +41,7 @@ function Contact() {
         </div>
         <div className="row justify-content-center">
           <div className="col-lg-3 col-xl-3 col-md-6 col-sm-12">
-            <div className="contact-box">
+            <div className="contact-box" style={{width:"100%"}}>
               <div className="icon-out"><div className="icon"><MdAlternateEmail /></div></div>
               <div className="conheading">
                 <h3>Email</h3>
@@ -51,7 +51,7 @@ function Contact() {
             </div>
           </div>
           <div className="col-lg-3 col-xl-3 col-md-6 col-sm-12">
-            <div className="contact-box">
+            <div className="contact-box" style={{width:"100%"}}>
               <div className="icon-out"><div className="icon"><FaLocationCrosshairs /></div></div>
               <div className="conheading">
                 <h3>Location</h3>
@@ -61,7 +61,7 @@ function Contact() {
             </div>
           </div>
           <div className="col-lg-3 col-xl-3 col-md-6 col-sm-12">
-            <div className="contact-box">
+            <div className="contact-box" style={{width:"100%"}}>
               <div className="icon-out"><div className="icon"><MdOutlinePhoneAndroid /></div></div>
               <div className="conheading">
                 <h3>Phone Number</h3>
@@ -73,8 +73,9 @@ function Contact() {
         </div>
         <div className="row justify-content-center">
           <div className="col-md-11 col-xl-6 col-lg-6 col-sm-11 maps">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24092.158981021585!2d45.596598239585155!3d40.991993159483144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4040da7d132705b7%3A0x1efe3978dbc139ec!2sTovuz!5e0!3m2!1saz!2saz!4v1720849255469!5m2!1saz!2saz" width="600" height="450" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24092.158981021585!2d45.596598239585155!3d40.991993159483144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4040da7d132705b7%3A0x1efe3978dbc139ec!2sTovuz!5e0!3m2!1saz!2saz!4v1720849255469!5m2!1saz!2saz"  allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
+  
           <div className="col-md-11 col-xl-6 col-lg-6 col-sm-11 login-form contact-form">
             <form onSubmit={sendMail} ref={form}>
               <label htmlFor="">Full Name:</label>

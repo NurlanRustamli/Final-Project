@@ -53,8 +53,8 @@ function ProductsPage() {
             </select>
           </div>
         </div>
-        <div className="row">
-          <div className="col-lg-3 col-xl-3 col-md-4 col-sm-6">
+        <div className="row ">
+          <div className="col-lg-3 col-xl-3 col-md-4 col-sm-6 col-xs-12 filterrow">
             <Sidebar onPriceChange={handlePriceChange} price={price} />
           </div>
           <div className="col-lg-9 col-xl-9 col-md-8 col-sm-6 filterproducts">

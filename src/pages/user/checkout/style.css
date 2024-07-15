@@ -74,6 +74,7 @@
 
 .billing-details-out {
     padding-inline: 10px;
+    padding-block: 10px 100px;
 }
 
 .billing-details {

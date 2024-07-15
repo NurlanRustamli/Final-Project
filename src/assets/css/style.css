@@ -88,9 +88,7 @@ a:hover {
     justify-content: space-between;
 }
 
-.ss-logo {
-    width: 144px;
-}
+
 
 .ss-input input {
 
@@ -124,6 +122,12 @@ a:hover {
     display: flex;
     justify-content: space-between;
 
+}
+.ss-logo{
+    img{
+        width: 80%;
+
+    }
 }
 
 .ss-login,

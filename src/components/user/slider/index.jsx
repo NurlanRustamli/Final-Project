@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 function Slider() {
   return (
-    <section style={{paddingBlock:"60px"}}>
+    <section id='slidersec' style={{paddingBlock:"10px 60px"}}>
       <Swiper
      pagination={true} modules={[Autoplay]} className="mySwiper"
      autoplay={{

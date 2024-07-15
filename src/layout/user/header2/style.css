@@ -28,3 +28,52 @@
     align-items: center;
     
 }
+
+.mobile-container {
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    height: fit-content;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #fff;
+    position: relative;
+    img{
+      width: 40%;
+    }
+  }
+  
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  .topnav a {
+    color: rgb(119 119 119);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: flex;
+  }
+  
+  .topnav a.icon {
+    color: #fff;
+    background: rgb(17, 145, 100);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .active {
+    background-color: #fff;
+    color: white;
+  }

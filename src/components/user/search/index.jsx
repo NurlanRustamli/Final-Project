@@ -12,7 +12,7 @@ function Search() {
     }
   }
   return (
-    <><div className="ss-input col-lg-5 col-xl-5 col-md-5">
+    <><div className="ss-input col-lg-5 col-xl-5 col-md-5 col-sm-12 col-xs-12">
       <form onSubmit={getHandleSearch}>
         <input type="text" placeholder="Search Products..." onChange={(e)=>setValue(e.target.value.trim())} />
         <button ><i className="fa-solid fa-magnifying-glass" /></button>

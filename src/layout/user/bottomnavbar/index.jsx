@@ -29,7 +29,7 @@ function BottomNavbar() {
                 <li ><Link to="/products/juice">Juice</Link></li>
               </ul>
             </div>
-            <div className="nav-lm col-lg-2 col-xl-2 col-md-3 col-sm-4">
+            <div className="nav-lm col-lg-2 col-xl-2 col-md-4 col-sm-6">
               <h3>Company</h3>
               <ul>
                 <li><Link to="/about">About us</Link></li>
@@ -37,14 +37,14 @@ function BottomNavbar() {
                 <li ><Link to="/terms">Terms & Conditions</Link></li>
               </ul>
             </div>
-            <div className="nav-rm col-lg-2 col-xl-2 col-md-3 col-sm-4">
+            <div className="nav-rm col-lg-2 col-xl-2 col-md-6 col-sm-6">
               <h3>Account</h3>
               <ul>
                 <li><Link to="/login">Sign In</Link></li>
                 <li ><Link to="/cart">View Cart</Link></li>
               </ul>
             </div>
-            <div className="nav-right col-lg-3 col-xl-3 col-md-4 col-sm-5">
+            <div className="nav-right col-lg-3 col-xl-3 col-md-6 col-sm-12">
               <h3>Contact</h3>
               <div className="location">
                 <FaLocationDot style={{ color: "green", marginRight: "5px" }} />

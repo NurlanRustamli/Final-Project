@@ -12,7 +12,7 @@ function Team() {
         <section id='team' style={{paddingBlock:"90px"}}>
             <div className="container">
                 <Swiper
-                    slidesPerView={5}
+                    slidesPerView={3}
                     spaceBetween={30}
                     pagination={{
                         clickable: true,
