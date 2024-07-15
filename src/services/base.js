@@ -1,9 +1,11 @@
 import axios from "axios"
+import { useNavigate } from "react-router"
 
 let productsUrl = import.meta.env.VITE_PRODUCTS_API
 let blogsUrl = import.meta.env.VITE_BLOGS_API
 let usersUrl = import.meta.env.VITE_USERS_API
 let commentsUrl = import.meta.env.VITE_COMMENTS_API
+
 
 
 export const productsApi = {
@@ -43,7 +45,7 @@ export const productsApi = {
     getSingleProduct: async function (id) {
         try {
             const response = await axios.get(`${productsUrl}/${id}`);
-            return response.data; // Assuming the response data is the product object
+            return response.data; 
         } catch (error) {
             console.error('Error fetching single product', error);
             throw error;
@@ -69,6 +71,22 @@ export const productsApi = {
     }, getTimeFilteredProducts: async function (time) {
         return (await axios.get(`${productsUrl}?time=${time}`)).data
 
+    } , changeDiscountProduct: async function (product, discountPrice) {
+        try {
+            const response = await axios.put(`${productsUrl}/${product.id}`, { ...product, discountPrice: discountPrice });
+            return response.data;
+        } catch (error) {
+            console.error('Error updating product rating', error);
+            throw error;
+        }
+    } , changePreviousProduct: async function (product, previousPrice) {
+        try {
+            const response = await axios.put(`${productsUrl}/${product.id}`, { ...product, previousPrice: previousPrice });
+            return response.data;
+        } catch (error) {
+            console.error('Error updating product rating', error);
+            throw error;
+        }
     }
 }
 export const usersApi = {
@@ -87,6 +105,17 @@ export const usersApi = {
             return error.response
         }
 
+    },getUser:async function (email) {
+        try {
+            let res = await axios.get(`${usersUrl}`)
+
+            const foundItem = res.data.find(item => item.email === email);
+            console.log(foundItem)
+          return foundItem
+
+        } catch (error) {
+            return error.response
+        }
     },
     registerUser: async function (userData, forData) {
 
@@ -124,6 +153,15 @@ export const usersApi = {
             return response.data;
         } catch (error) {
             console.error('Error deleting blog:', error);
+            throw error;
+        }
+    },refreshPassword: async function (user,newPassword) {
+        try {
+            const response = await axios.put(`${usersUrl}/${user.id}`, { ...user, password: newPassword });
+            alert("Successfully Changed")
+            return response.data;
+        } catch (error) {
+            console.error('Error updating user password', error);
             throw error;
         }
     }

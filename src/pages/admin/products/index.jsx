@@ -3,9 +3,13 @@ import { blogsApi, productsApi } from '../../../services/base';
 import "./style.css"
 import { IoIosRemoveCircle } from 'react-icons/io';
 import axios from 'axios';
+import { CiEdit } from 'react-icons/ci';
 
 function Products() {
-  const addModal = document.querySelector(".add-modal")
+  const [itemId, setItemId] = useState("")
+  const addModal = document.querySelector(".addmodalsection")
+  const newDiscountModal = document.querySelector(".newDiscount")
+  const newPreviousModal = document.querySelector(".newPrevious")
   const [products, setProducts] = useState([]);
   const prName = useRef(null)
   const prImage = useRef(null)
@@ -13,7 +17,9 @@ function Products() {
   const prCount = useRef(null)
   const prType = useRef(null)
   const prDisPrice = useRef(null)
+  const newDisPrice = useRef(null)
   const prPrevPrice = useRef(null)
+  const newPrevPrice = useRef(null)
   const prWeight = useRef(null)
   const prTime = useRef(null)
   const prId = useRef(null)
@@ -32,7 +38,7 @@ function Products() {
 
   const addProduct = async (e) => {
     e.preventDefault()
-    const productAddResponse = productsApi.addProduct({
+    const productAddResponse = await productsApi.addProduct({
       name: prName.current.value,
       image: prImage.current.value,
       type: prType.current.value,
@@ -49,8 +55,39 @@ function Products() {
 
     // }
   }
+  const handleEditClick = (id, type) => {
+    if (type === 'discount') {
+      newDiscountModal.style.display = "block";
+    } else if (type === 'previous') {
+      newPreviousModal.style.display = "block";
+    }
+    setItemId(id)
+    console.log('Edit clicked for item with id:', id);
+  };
+  const refreshDiscountPrice = async (e) => {
+    e.preventDefault()
+    const foundProduct = await productsApi.getSingleProduct(itemId)
 
+    try {
+      await productsApi.changeDiscountProduct(foundProduct, parseFloat(newDisPrice.current.value))
+    } catch {
+      console.error('Error updating product discount', error);
+      throw error;
+    }
 
+  }
+  const refreshPreviousPrice =async (e) => {
+    e.preventDefault()
+    const foundProduct = await productsApi.getSingleProduct(itemId)
+
+    try {
+     await productsApi.changePreviousProduct(foundProduct, parseFloat(newPrevPrice.current.value))
+    } catch {
+      console.error('Error updating product previous', error);
+      throw error;
+    }
+
+  }
 
   return (
 
@@ -74,12 +111,21 @@ function Products() {
               </div>
               <div className="cart-pr-list col-xl-2 col-lg-2 col-md-2 col-sm-2">
                 <h4 style={{ textAlign: "center" }}>Discount Price</h4>
-                <h4>$ {item.discountPrice}</h4>
+
+
+                <h4 className='d-flex justify-content-between' style={{ alignItems: "center" }}>$ {item.discountPrice} <div style={{ fontSize: "30px" }} onClick={() => handleEditClick(item.id, 'discount')}><CiEdit /></div></h4>
+
+
+
               </div>
 
               <div className="cart-pr-list col-xl-2 col-lg-2 col-md-2 col-sm-2">
                 <h4 style={{ textAlign: "center" }}>Previous Price</h4>
-                <h4>$ {item.previousPrice}</h4>
+
+                <h4 className='d-flex justify-content-between' style={{ alignItems: "center" }}>$ {item.previousPrice}
+                  <div onClick={() => handleEditClick(item.id, 'previous')} style={{ fontSize: "30px" }}><CiEdit /></div>
+                </h4>
+
               </div>
               <div className="cart-pr-list adminremove col-xl-2 col-lg-2 col-md-2 col-sm-2">
                 <h4 style={{ textAlign: "center" }}>Remove</h4>
@@ -90,7 +136,29 @@ function Products() {
           ))}
 
         </div>
-        <div className="add-modal">
+        <div className="add-modal newDiscount">
+          <form onSubmit={refreshDiscountPrice}>
+            <div>
+              <label htmlFor="">New Product Discount Price:</label>
+              <br />
+              <input type="text" name="" id="" ref={newDisPrice} />
+            </div>
+            <button type='submit'>Add</button>
+            <button onClick={() => { newDiscountModal.style.display = "none" }}>Close</button>
+          </form>
+        </div>
+        <div className="add-modal newPrevious">
+          <form onSubmit={refreshPreviousPrice}>
+            <div>
+              <label htmlFor="">New Product Previous Price:</label>
+              <br />
+              <input type="text" name="" id="" ref={newPrevPrice} />
+            </div>
+            <button type='submit'>Add</button>
+            <button onClick={() => { newPreviousModal.style.display = "none" }}>Close</button>
+          </form>
+        </div>
+        <div className="add-modal addmodalsection">
 
           <form onSubmit={addProduct}>
             <div>

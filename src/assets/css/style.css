@@ -123,8 +123,9 @@ a:hover {
     justify-content: space-between;
 
 }
-.ss-logo{
-    img{
+
+.ss-logo {
+    img {
         width: 80%;
 
     }
@@ -179,10 +180,12 @@ a:hover {
     color: rgb(92 175 144);
 
 }
-.ss-icon>span{
+
+.ss-icon>span {
     transition: all ease .3s;
 
 }
+
 .ss-cart:hover .ss-icon>span {
     color: #5caf90;
 }
@@ -366,8 +369,7 @@ a:hover {
 
 .sixth-main {
     display: flex;
-    justify-content: space-between;
-
+    gap: 1%;
 }
 
 .six-product-out {

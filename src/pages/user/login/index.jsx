@@ -71,6 +71,9 @@ function Login() {
 
                   }
                 </div>
+                <div className="register" onClick={scroolToTop()}>
+                  <Link to="/forgot">Forgot Password?</Link>
+                </div>
 
 
               </div>
@@ -79,6 +82,7 @@ function Login() {
                 <div className="register" onClick={scroolToTop()}>
                   <Link to="/register">Register</Link>
                 </div>
+                
                 <button type="submit" id='submit' >Sign In</button>
 
               </div>

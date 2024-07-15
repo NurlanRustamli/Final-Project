@@ -47,6 +47,7 @@ import Admin from './pages/admin/Admin.jsx'
 import HomeAdmin from './pages/admin/HomeAdmin.jsx'
 import BlogAdmin from './pages/admin/blog/index.jsx'
 import "./assets/css/responsive.css"
+import ForgotPassword from './pages/user/forgotpassword/index.jsx'
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
           <Route element={<Cart />} path='cart' />
           <Route element={<Favorite />} path='favorite' />
           <Route element={<Login />} path='login' />
+          <Route element={<ForgotPassword />} path='forgot' />
           <Route element={<Register />} path='register' />
           <Route element={<Blog />} path='blog' />
           <Route element={<ProductsPage />} path='/products' />

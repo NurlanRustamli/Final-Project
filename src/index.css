@@ -285,6 +285,7 @@ section#contact {
     .filterproducts {
         border: 1px solid #e5e7eb;
         display: flex;
+        flex-wrap: wrap;
         gap: 10px;
         justify-content: flex-start;
         padding: 20px;

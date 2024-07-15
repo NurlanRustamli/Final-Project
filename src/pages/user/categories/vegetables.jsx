@@ -4,11 +4,18 @@ import { productsApi } from '../../../services/base'
 import ProductCard from '../../../components/user/productcard'
 
 function Vegetables() {
+    const [sortedData, setSortedData] = useState([])
+    const [price, setPrice] = useState(100)
     const [vegetablesData,setVegetablesData] =useState([])
    useEffect(()=>{
     productsApi.getTypeFilteredProducts("vegetables").then(data=>setVegetablesData(data))
 
 },[])
+const handlePriceChange = (value) => {
+    setPrice(value)
+    const filteredProducts = vegetablesData.filter(product => product.discountPrice <= value)
+    setSortedData(filteredProducts)
+  }
    
     return (
         <section id='types'>
@@ -23,15 +30,24 @@ function Vegetables() {
 
                 <div className="row">
             <div className="col-lg-3 col-xl-3 col-md-4 col-sm-6">
-                <Sidebar />
+            <Sidebar onPriceChange={handlePriceChange} price={price} />
+
             </div>
             <div className="col-lg-9 col-xl-9 col-md-8 col-sm-6 filterproducts">
-                {
-                    vegetablesData.map(item => <div className=' six-product-out col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-6' key={item.id}>
-
-                        <ProductCard product={item} />
-                    </div>)
-                }
+            {vegetablesData.length ?
+                              (
+                                price === 100 ?
+                                    (sortedData.length ? sortedData : vegetablesData).map(item => <div className=' six-product-out col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-6' key={item.id}>
+    
+                                        <ProductCard product={item} />
+                                    </div>) : (sortedData.length?sortedData.map(item => <div className=' six-product-out col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-6' key={item.id}>
+    
+                                        <ProductCard product={item} />
+                                    </div>):<div>Products can not be found</div>)
+    
+    
+                                     ) : <div>Products can not be found</div>
+                        }
             </div>
             </div></div>
         </section>
