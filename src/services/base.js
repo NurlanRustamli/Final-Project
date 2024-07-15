@@ -13,14 +13,30 @@ export const productsApi = {
 
     }
     ,
-    addProduct: function (params) {
-        axios.post(productsUrl, params)
-    }, changeProduct: async function (rating, product) {
+    addProduct: async function (params) {
+        try {
+            const response = await axios.post(productsUrl, params);
+            return response.data;
+        } catch (error) {
+            console.error('Error adding product:', error);
+            throw error;
+        }
+    }
+    , changeProduct: async function (rating, product) {
         try {
             const response = await axios.put(`${productsUrl}/${product.id}`, { ...product, rating: rating });
             return response.data;
         } catch (error) {
             console.error('Error updating product rating', error);
+            throw error;
+        }
+    },deleteProduct: async function (id) {
+        
+        try {
+            const response = await axios.delete(`${productsUrl}/${id}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error deleting blog:', error);
             throw error;
         }
     },
@@ -56,7 +72,7 @@ export const productsApi = {
     }
 }
 export const usersApi = {
-   getAllUsers: async function () {
+    getAllUsers: async function () {
 
         return (await axios.get(usersUrl)).data
 
@@ -101,6 +117,15 @@ export const usersApi = {
             return error.response
         }
 
+    },deleteUser: async function (id) {
+        
+        try {
+            const response = await axios.delete(`${usersUrl}/${id}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error deleting blog:', error);
+            throw error;
+        }
     }
 }
 export const commentsApi = {
@@ -130,8 +155,14 @@ export const blogsApi = {
 
     }
     ,
-    addBlog: function (params) {
-        axios.post(blogsUrl, params)
+    addBlog:async function (params) {
+        try {
+            const response = await axios.post(blogsUrl, params);
+            return response.data;
+        } catch (error) {
+            console.error('Error adding blog:', error);
+            throw error;
+        }
     }, changeBlog: async function (rating, product) {
         try {
             const response = await axios.put(`${blogsUrl}/${product.id}`, { ...product, rating: rating });
@@ -161,6 +192,15 @@ export const blogsApi = {
     }, getTypeFilteredBlogs: async function (type) {
         return (await axios.get(`${blogsUrl}?type=${type}`)).data
 
+    },deleteBlog: async function (id) {
+        
+        try {
+            const response = await axios.delete(`${blogsUrl}/${id}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error deleting blog:', error);
+            throw error;
+        }
     }
     //, getTimeFilteredProducts: async function (time) {
     //     return (await axios.get(`${blogsUrl}?time=${time}`)).data

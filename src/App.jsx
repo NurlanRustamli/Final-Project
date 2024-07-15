@@ -46,6 +46,7 @@ import BlogDetailPage from './pages/blogDetailPage/index.jsx'
 import Admin from './pages/admin/Admin.jsx'
 import HomeAdmin from './pages/admin/HomeAdmin.jsx'
 import BlogAdmin from './pages/admin/blog/index.jsx'
+import "./assets/css/responsive.css"
 
 
 function App() {
@@ -101,7 +102,7 @@ function App() {
             <Route element={<HomeAdmin />} index />
             <Route element={<Products />} path='products' />
             <Route element={<Users />} path='users' />
-            <Route element={<BlogAdmin />} path='users' />
+            <Route element={<BlogAdmin />} path='blog' />
           </Route> : null
         }
       </Routes>

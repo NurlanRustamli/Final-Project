@@ -122,6 +122,7 @@ a:hover {
 
 .ss-others {
     display: flex;
+    justify-content: space-between;
 
 }
 
@@ -129,6 +130,8 @@ a:hover {
 .ss-wish,
 .ss-cart {
     display: flex;
+    justify-content: center;
+    width: 100%;
     padding-left: 10px;
     align-items: center;
     position: relative;
@@ -366,7 +369,7 @@ a:hover {
 .six-product-out {
     width: 24%;
     margin-bottom: 10px;
-    height: 65vh;
+    height: fit-content;
 }
 
 .six-product {

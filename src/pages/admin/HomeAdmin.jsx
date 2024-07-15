@@ -5,12 +5,12 @@ import
  import 
  { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
  from 'recharts';
-import { commentsApi, productsApi, usersApi } from '../../services/base';
+import { blogsApi, commentsApi, productsApi, usersApi } from '../../services/base';
 
 function HomeAdmin() {
   const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
-  const [comments, setComments] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -30,11 +30,10 @@ function HomeAdmin() {
       } catch (error) {
         console.error('Error fetching users:', error);
       }
-    };const fetchComments = async () => {
+    };const fetchBlogs = async () => {
       try {
-        const commentData = await commentsApi.getComment();
-        setComments(commentData);
-        console.log(users)
+        const blogData = await blogsApi.getAllBlog();
+        setBlogs(blogData);
       } catch (error) {
         console.error('Error fetching users:', error);
       }
@@ -42,7 +41,7 @@ function HomeAdmin() {
 
     fetchProducts();
     fetchUsers();
-    fetchComments()
+    fetchBlogs()
   }, []);
 
     const data = [
@@ -121,10 +120,10 @@ function HomeAdmin() {
             </div>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>Comments</h3>
+                    <h3>BLOGS</h3>
                     <BsFillBellFill className='card_icon'/>
                 </div>
-                <h1>{comments.length}</h1>
+                <h1>{blogs.length}</h1>
             </div>
         </div>
 

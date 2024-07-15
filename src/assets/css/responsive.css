@@ -1,0 +1,56 @@
+@media screen and (max-width:768px) and (min-width:562px) {
+    #first-sec {
+        display: none;
+    }
+    .slider-info{
+        h2{
+            font-size: 40px;
+        }
+    }
+    .fif-product-out{
+        width: 25%;
+    }
+    .fif-product{
+        .fif-pr{
+            
+            h5{
+                font-size: 14px;
+            }
+        }
+        .fif-pr i{
+            font-size: 30px !important;
+        }
+    }
+    .six-product-out{
+        width: 48%;
+    }
+}
+
+
+@media screen and (max-width:992px) and (min-width:768px) {
+    #first-sec {
+        display: none;
+    }
+   .swiper-slide .slider-info{
+        h2{
+            font-size: 40px;
+        }
+    }
+    .fif-product-out{
+        width: 25%;
+    }
+    .fif-product{
+        .fif-pr{
+            
+            h5{
+                font-size: 14px;
+            }
+        }
+        .fif-pr i{
+            font-size: 30px !important;
+        }
+    }
+    .six-product-out{
+        width: 48%;
+    }
+}

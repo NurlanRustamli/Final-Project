@@ -21,16 +21,19 @@ function Header2() {
     <div id='second-sec'>
       <div className="container">
         <div className="row justify-content-between">
+        
+          <div className="ss-logo col-lg-2 col-xl-2 col-md-3">
           <Link to='/'>
-          <div className="ss-logo">
             <img src="https://maraviyainfotech.com/projects/grabit-tailwind/grabit-tailwind/assets/img/logo/logo.png" alt="" />
+            </Link>
           </div>
-          </Link>
+      
 
           <Search />
-          <div className="ss-others col-lg-3 col-xl-3 col-md-4">
+          <div className="ss-others col-lg-5 col-xl-5 col-md-5">
+            <div className="ss-login col-lg-4 col-xl-4 col-md-4">
             <Link to={`${Object.keys(userData).length ? "/profile" : "/login"}`} style={{display:'flex',}}>
-            <div className="ss-login">
+
               {
                 userData.avatar ? <div className="ss-icon">
                 <img src={userData.avatar} id='avatar' alt="" />
@@ -47,11 +50,12 @@ function Header2() {
                     <li><Link to="/login">Login</Link></li>
                   </ul> */}
                 </div>
-              </div>
             </div></Link>
+
+              </div>
             
+            <div className="ss-wish col-lg-4 col-xl-4 col-md-4">
             <Link to='/favorite'  id='favorite'>
-            <div className="ss-wish">
               
                 <div className="ss-icon">
                   {favList.length?
@@ -65,11 +69,12 @@ function Header2() {
                 <p>Wishlist</p>
                 {/* <div><span>{favList.length}</span> -ITEMS</div> */}
               </div>
+              </Link>
             
             </div>
-            </Link>
+              <div className="ss-cart col-lg-4 col-xl-4 col-md-4">
             <Link to='/cart' id='cart'>
-              <div className="ss-cart">
+
                 <div className="ss-icon">
                   <FaShoppingCart />
                   <span>{sum}</span>
@@ -77,8 +82,9 @@ function Header2() {
                 <div className="ss-info d-flex fd-column justify-content-center">
                   <p>Cart</p>
                 </div>
-              </div>
             </Link>
+
+              </div>
           </div>
         </div>
       </div>

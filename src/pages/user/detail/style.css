@@ -48,13 +48,16 @@
     .detail-cart{
         padding-block: 10px;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
+        gap: 10px;
         .img-hover-icons{
-font-size: 20px;
+font-size: 40px;
+
         }
         h4{
+            height: fit-content;
             text-align: center;
-            width: 30%;
+            width: 10%;
             border: 1px solid rgb(133, 131, 131);
             border-radius: 10px;
         }

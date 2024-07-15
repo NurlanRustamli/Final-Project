@@ -17,7 +17,7 @@ function Search() {
   },[name])
   console.log(products)
   return (
-    <div className='container'>
+    <div className='container' style={{marginBlock:"10px 120px"}}>
       <h1  className='text-center' style={{color:"green", fontSize:"50px",marginBlock:"20px"}}>Search</h1>
       <div className="row">
       <h3 style={{
