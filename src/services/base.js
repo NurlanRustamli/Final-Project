@@ -25,14 +25,20 @@ export const productsApi = {
         }
     }
     , changeProduct: async function (rating, product) {
-        try {
-            const response = await axios.put(`${productsUrl}/${product.id}`, { ...product, rating: rating });
-            return response.data;
-        } catch (error) {
-            console.error('Error updating product rating', error);
-            throw error;
-        }
-    },deleteProduct: async function (id) {
+    try {
+        // Create a new object with all existing product properties and the new rating
+        const updatedProduct = {
+            ...product,
+            rating: rating
+        };
+
+        const response = await axios.put(`${productsUrl}/${product.id}`, updatedProduct);
+        return response.data;
+    } catch (error) {
+        console.error('Error updating product rating', error);
+        throw error;
+    }
+},deleteProduct: async function (id) {
         
         try {
             const response = await axios.delete(`${productsUrl}/${id}`);
@@ -184,6 +190,14 @@ export const commentsApi = {
             return error.response
         }
 
+    },
+    getFilteredComments:async function(productId){
+        try {
+            let res = await axios.get(`${commentsUrl}?productId=${productId}`)
+            return res
+        } catch (error) {
+            return error.response
+        }
     }
 }
 export const blogsApi = {

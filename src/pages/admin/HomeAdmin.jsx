@@ -1,140 +1,134 @@
-import React, { useEffect, useReducer, useState } from 'react'
-import 
-{ BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill}
- from 'react-icons/bs'
- import 
- { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
- from 'recharts';
-import { blogsApi, commentsApi, productsApi, usersApi } from '../../services/base';
 
-function HomeAdmin() {
-  const [products, setProducts] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [blogs, setBlogs] = useState([]);
-  const [reducerValue, forcedUpdate] = useReducer(x=>x+1,0)
+import React, { useEffect, useState } from 'react'
+import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill } from 'react-icons/bs'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { blogsApi, productsApi, usersApi } from '../../services/base';
 
+// Custom hook for data fetching
+const useDataFetching = () => {
+  const [data, setData] = useState({ products: [], users: [], blogs: [] });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchData = async () => {
       try {
-        const productData = await productsApi.getAllProduct();
-        setProducts(productData);
+        const [products, users, blogs] = await Promise.all([
+          productsApi.getAllProduct(),
+          usersApi.getAllUsers(),
+          blogsApi.getAllBlog()
+        ]);
+        setData({ products, users, blogs });
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error('Error fetching data:', error);
+        setError(error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    const fetchUsers = async () => {
-      try {
-        const userData = await usersApi.getAllUsers();
-        setUsers(userData);
-        console.log(users)
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };const fetchBlogs = async () => {
-      try {
-        const blogData = await blogsApi.getAllBlog();
-        setBlogs(blogData);
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
+    fetchData();
+  }, []);
 
-    fetchProducts();
-    fetchUsers();
-    fetchBlogs()
-  }, [reducerValue]);
+  return { data, loading, error };
+};
 
-    const data = [
-        {
-          name: 'Page A',
-          uv: 4000,
-          pv: 2400,
-          amt: 2400,
-        },
-        {
-          name: 'Page B',
-          uv: 3000,
-          pv: 1398,
-          amt: 2210,
-        },
-        {
-          name: 'Page C',
-          uv: 2000,
-          pv: 9800,
-          amt: 2290,
-        },
-        {
-          name: 'Page D',
-          uv: 2780,
-          pv: 3908,
-          amt: 2000,
-        },
-        {
-          name: 'Page E',
-          uv: 1890,
-          pv: 4800,
-          amt: 2181,
-        },
-        {
-          name: 'Page F',
-          uv: 2390,
-          pv: 3800,
-          amt: 2500,
-        },
-        {
-          name: 'Page G',
-          uv: 3490,
-          pv: 4300,
-          amt: 2100,
-        },
-      ];
-     
+function HomeAdmin() {
+  const { data, loading, error } = useDataFetching();
+  const { products, users, blogs } = data;
+
+
+  const chartdata = [
+    {
+      name: 'Page A',
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: 'Page B',
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
+    },
+    {
+      name: 'Page C',
+      uv: 2000,
+      pv: 9800,
+      amt: 2290,
+    },
+    {
+      name: 'Page D',
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
+    },
+    {
+      name: 'Page E',
+      uv: 1890,
+      pv: 4800,
+      amt: 2181,
+    },
+    {
+      name: 'Page F',
+      uv: 2390,
+      pv: 3800,
+      amt: 2500,
+    },
+    {
+      name: 'Page G',
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
+    },
+  ];
+ 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <main className='main-container'>
-        <div className='main-title'>
-            <h3>DASHBOARD</h3>
-        </div>
+      <div className='main-title'>
+        <h3>DASHBOARD</h3>
+      </div>
 
-        <div className='main-cards'>
-            <div className='card'>
-                <div className='card-inner'>
-                    <h3>PRODUCTS</h3>
-                    <BsFillArchiveFill className='card_icon'/>
-                </div>
-                <h1>{products.length}</h1>
-            </div>
-            <div className='card'>
-                <div className='card-inner'>
-                    <h3>CATEGORIES</h3>
-                    <BsFillGrid3X3GapFill className='card_icon'/>
-                </div>
-                <h1>6</h1>
-            </div>
-            <div className='card'>
-                <div className='card-inner'>
-                    <h3>CUSTOMERS</h3>
-                    <BsPeopleFill className='card_icon'/>
-                </div>
-                <h1>{users.length}</h1>
-            </div>
-            <div className='card'>
-                <div className='card-inner'>
-                    <h3>BLOGS</h3>
-                    <BsFillBellFill className='card_icon'/>
-                </div>
-                <h1>{blogs.length}</h1>
-            </div>
+      <div className='main-cards'>
+        <div className='card'>
+          <div className='card-inner'>
+            <h3>PRODUCTS</h3>
+            <BsFillArchiveFill className='card_icon'/>
+          </div>
+          <h1>{products.length}</h1>
         </div>
+        <div className='card'>
+          <div className='card-inner'>
+            <h3>CATEGORIES</h3>
+            <BsFillGrid3X3GapFill className='card_icon'/>
+          </div>
+          <h1>6</h1>
+        </div>
+        <div className='card'>
+          <div className='card-inner'>
+            <h3>CUSTOMERS</h3>
+            <BsPeopleFill className='card_icon'/>
+          </div>
+          <h1>{users.length}</h1>
+        </div>
+        <div className='card'>
+          <div className='card-inner'>
+            <h3>BLOGS</h3>
+            <BsFillBellFill className='card_icon'/>
+          </div>
+          <h1>{blogs.length}</h1>
+        </div>
+      </div>
 
-        <div className='charts'>
-            <ResponsiveContainer width="100%" height="100%">
-            <BarChart
+      <div className='charts'>
+        <ResponsiveContainer width="100%" height="100%">
+        <BarChart
             width={500}
             height={300}
-            data={data}
+            data={chartdata}
             margin={{
                 top: 5,
                 right: 30,
@@ -150,13 +144,13 @@ function HomeAdmin() {
                 <Bar dataKey="pv" fill="#8884d8" />
                 <Bar dataKey="uv" fill="#82ca9d" />
                 </BarChart>
-            </ResponsiveContainer>
+        </ResponsiveContainer>
 
-            <ResponsiveContainer width="100%" height="100%">
-                <LineChart
+        <ResponsiveContainer width="100%" height="100%">
+        <LineChart
                 width={500}
                 height={300}
-                data={data}
+                data={chartdata}
                 margin={{
                     top: 5,
                     right: 30,
@@ -172,9 +166,8 @@ function HomeAdmin() {
                 <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
                 <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
                 </LineChart>
-            </ResponsiveContainer>
-
-        </div>
+        </ResponsiveContainer>
+      </div>
     </main>
   )
 }

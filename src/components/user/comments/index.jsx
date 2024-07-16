@@ -1,134 +1,118 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { commentsApi, productsApi } from '../../../services/base';
 import { useSelector } from 'react-redux';
 import CommentsSection from '../commentsSection';
+import debounce from 'lodash/debounce'; // You'll need to install lodash
 
 function Comments(props) {
     const { isLogin } = useSelector(state => state)
-    const [handle,setHandle] =useState(false)
-    const productId = props.productId
-    const product = props.product
-    const userName = props.userName
-    const commentInput = useRef()
-    const commentSelect = useRef()
-    const nameInput = useRef()
+    const { productId, product, userName } = props
     const [allComments, setAllComments] = useState([])
     const [totalRating, setTotalRating] = useState(0);
-    const [comment, setComment] = useState("")
-    const [rating, setRating] = useState(0)
-    const [name, setName] = useState("")
+    const [formData, setFormData] = useState({
+        comment: "",
+        rating: 1,
+        name: ""
+    })
+    const [shouldFetchComments, setShouldFetchComments] = useState(true)
+
     const handleChange = (e) => {
-        const selectedValue = parseInt(e.target.value);
-        if (selectedValue !== 0) {
-            setRating(selectedValue);
-        } else {
-            alert('Please select a valid number');
-        }
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }))
     };
-    const sendComment = (e) => {
+
+    const sendComment = async (e) => {
         e.preventDefault();
         const commentPost = {
             productId: productId,
-            comment: comment,
-            rating: rating,
-            username: isLogin ? userName : name
+            comment: formData.comment,
+            rating: parseInt(formData.rating),
+            username: isLogin ? userName : formData.name
         };
-        setHandle(!handle)
-       
-        commentsApi.postComment(commentPost)
-            .then(response => {
-                console.log(rating)
-                console.log('Comment posted successfully', response);
-                // Handle success (e.g., clear form, show success message)
-                commentInput.current.value = ""
-                commentSelect.current.value = "1"
-                console.log(rating)
-
-            })
-            .catch(error => {
-                console.error('Error posting comment', error);
-                // Handle error (e.g., show error message)
-            });
-    };
-    const fetchComments = async () => {
+        
         try {
-            const response = await commentsApi.getComment();
+            // Post the new comment
+            await commentsApi.postComment(commentPost);
+            
+            // Fetch updated comments immediately
+            const response = await commentsApi.getFilteredComments(productId);
+            const updatedComments = response.data;
+            
+            // Calculate new rating
+            const relevantComments = updatedComments.filter(comment => comment.productId === productId);
+            const total = relevantComments.reduce((acc, comment) => acc + comment.rating, 0);
+            const newRating = relevantComments.length ? Math.round(total / relevantComments.length) : 0;
+            
+            // Update product with new rating
+            await productsApi.changeProduct(newRating, product);
+            
+            // Update state
+            setAllComments(updatedComments);
+            setTotalRating(newRating);
+            setFormData(prev => ({ ...prev, comment: "", rating: 1 }));
+            
+            // No need to set shouldFetchComments to true, as we've already fetched the latest comments
+        } catch (error) {
+            console.error('Error posting comment or updating product', error);
+        }
+    };
+
+    const fetchComments = useCallback(debounce(async () => {
+        try {
+            const response = await commentsApi.getFilteredComments(productId);
             const data = response.data;
-            setAllComments(data);
+            setAllComments(data)
             computeRating(data);
         } catch (error) {
             console.error('Error fetching comments', error);
         }
-    };
+        setShouldFetchComments(false);
+    }, 500), [productId]);
+
     const computeRating = (comments) => {
         const relevantComments = comments.filter(comment => comment.productId === productId);
         const total = relevantComments.reduce((acc, comment) => acc + comment.rating, 0);
         const averageRating = relevantComments.length ? Math.round(total / relevantComments.length) : 0;
         setTotalRating(averageRating);
-        productsApi.changeProduct(totalRating, product)
-            .then(response => {
-                console.log('Product rating updated successfully', response);
-            })
-            .catch(error => {
-                console.error('Error updating product rating', error);
-            });
     };
+
     useEffect(() => {
-        fetchComments();
-
-    }, [handle]);
-
-
+        if (shouldFetchComments) {
+            fetchComments();
+        }
+    }, [shouldFetchComments, fetchComments]);
 
     return (
         <section id='comments-sec'>
             <div className="container">
                 <div className="row" >
-
                     <form onSubmit={sendComment} style={{ width: "100%" }}>
-                        {
-                            isLogin ? <div style={{ width: "100%", paddingBlock: "10px" }}>
-                                <label htmlFor="" style={{ fontSize: "17px" }}>Comment:</label>
+                        {!isLogin && (
+                            <div style={{ width: "100%", paddingBlock: "10px" }}>
+                                <label htmlFor="name" style={{ fontSize: "17px" }}>Name:</label>
                                 <br />
-                                <input type="text" name="" id="commentInp" value={userName} disabled placeholder='Enter your comment...' />
-
-                            </div> : <div style={{ width: "100%", paddingBlock: "10px" }}>
-                                <label htmlFor="" style={{ fontSize: "17px" }}>Name:</label>
-                                <br />
-                                <input type="text" name="" id="commentInp" ref={nameInput} onChange={(e) => setName(e.target.value)} placeholder='Enter your comment...' />
-
+                                <input type="text" name="name" id="nameInp" style={{width:"100%",paddingBlock:"10px"}} value={formData.name} onChange={handleChange} placeholder='Enter your name...' />
                             </div>
-                        }
-
+                        )}
                         <div style={{ width: "100%", paddingBlock: "10px" }}>
-                            <label htmlFor="" style={{ fontSize: "17px" }}>Comment:</label>
+                            <label htmlFor="comment" style={{ fontSize: "17px" }}>Comment:</label>
                             <br />
-                            <input type="text" name="" id="commentInp" ref={commentInput} onChange={(e) => setComment(e.target.value)} placeholder='Enter your comment...' />
-
+                            <input type="text" name="comment" id="commentInp" value={formData.comment} onChange={handleChange} placeholder='Enter your comment...' />
                         </div>
                         <div style={{ width: "100%", paddingBlock: "10px" }} >
-                            <label htmlFor="" style={{ fontSize: "17px" }}>Rating:</label>
+                            <label htmlFor="rating" style={{ fontSize: "17px" }}>Rating:</label>
                             <br />
-                            <select name="" id="rating" ref={commentSelect} value={rating} onChange={handleChange}>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                            <select name="rating" id="rating" value={formData.rating} onChange={handleChange}>
+                                {[1, 2, 3, 4, 5].map(num => (
+                                    <option key={num} value={num}>{num}</option>
+                                ))}
                             </select>
                         </div>
-
-                        <button type='submit' id='commentBtn'>
-                            Send
-                        </button>
+                        <button type='submit' id='commentBtn'>Send</button>
                     </form>
-
-                </div>
-                <div className="row">
                 </div>
             </div>
-            <CommentsSection allComments={allComments} product={product} productId={productId} />
-
+            <CommentsSection filteredComments={allComments} product={product} productId={productId} />
         </section>
     )
 }

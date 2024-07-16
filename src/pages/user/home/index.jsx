@@ -10,7 +10,6 @@ import Services from '../../../components/user/services'
 function Home() {
   return (
     <main>
-      <Newsletter />
       <div data-aos="zoom-in" data-aos-duration="1500">
         <Slider />
       </div>

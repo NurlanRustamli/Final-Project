@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BsCartPlusFill } from "react-icons/bs";
 import { BsCartDashFill } from "react-icons/bs";
 import { MdFavorite, MdFavoriteBorder, MdRemoveShoppingCart } from "react-icons/md";
@@ -10,13 +10,19 @@ import { addToCartAction, countDecrement, removeFromCart } from '../../../redux/
 import { addToFavAction, removeFromFavAction } from '../../../redux/actions/favList.actions';
 
 function ProductCard(props) {
-  let { id, rating, previousPrice, weight, discountPrice, time, image, name, type } = props.product
+  let { id,  previousPrice, weight, discountPrice, time, image, name, type } = props.product
+  const [rating, setRating] = useState(props.product.rating)
 const changeNav=useNavigate()
   const dispatch = useDispatch()
   const { favList ,isLogin} = useSelector(state => state)
   function addToCart() {
 
     dispatch(addToCartAction(props.product))
+  }
+  const updateRating = (newRating) => {
+    setRating(newRating)
+    // Here you would typically also make an API call to update the rating in your backend
+    // For example: api.updateProductRating(id, newRating)
   }
   return (
     <div className='six-product' id={time}  data-aos="fade-up" data-aos-duration="1700">

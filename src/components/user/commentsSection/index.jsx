@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import "./style.css"
+import { commentsApi } from '../../../services/base';
 
 function CommentsSection(props) {
-  // const {userData}=useSelector()
-  
-  let sum =0;
-  const [ratingtotal, setratingtotal] = useState(0)
-  const allComments = props.allComments
+  const [ratingTotal, setRatingTotal] = useState(0)
+  const filteredComments =props.filteredComments
   const productId = props.productId
-  const product = props.product
-  const filteredComments = allComments.filter(item => item.productId == product.id)
-  filteredComments.forEach((item) => {
-    sum += item.rating
-  })
+
+
+
+
   useEffect(() => {
-    setratingtotal(Math.round(sum / filteredComments.length))
-  },[])
+    calculateRating()
+  }, [filteredComments])
+
+  function calculateRating() {
+    if (!Array.isArray(filteredComments) || filteredComments.length === 0) {
+      setRatingTotal(0)
+      return
+    }
+    
+    const sum = filteredComments.reduce((acc, item) => acc + (item.rating || 0), 0)
+    setRatingTotal(Math.round(sum / filteredComments.length))
+  }
+
   return (
     <section id='commentssec'>
       <div className="container">
@@ -26,24 +33,18 @@ function CommentsSection(props) {
             <h3>Comment:</h3>
             <h3>Rating:</h3>
           </div>
-          {
-            allComments.length > 0 ? (
-              allComments.map((comment) => (
-                comment.productId === productId ? (
-                  <div className='commentRead' key={comment.id}>
-                    <h4>{comment.username}</h4>
-                    <p>{comment.comment}</p>
-                    <p>Rating: {comment.rating}</p>
-
-                  </div>
-                ) : null
-              ))
-            ) : (
-              <div>There are no comments</div>
-
-            )
-          }
-          <div>Total Rating: {sum/filteredComments.length}</div>
+          {Array.isArray(filteredComments) && filteredComments.length > 0 ? (
+            filteredComments.map((comment) => (
+              <div className='commentRead' key={comment.id}>
+                <h4>{comment.username}</h4>
+                <p>{comment.comment}</p>
+                <p>Rating: {comment.rating}</p>
+              </div>
+            ))
+          ) : (
+            <div>There are no comments</div>
+          )}
+          <div>Total Rating: {ratingTotal}</div>
         </div>
       </div>
     </section>

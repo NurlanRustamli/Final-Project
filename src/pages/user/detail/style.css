@@ -65,7 +65,7 @@ font-size: 40px;
   
 
 }
-#commentInp{
+#commentInp,#nameInp{
     width: 100%;
     padding: 10px 20px;
     border-radius: 10px;

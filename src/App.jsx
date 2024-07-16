@@ -49,6 +49,7 @@ import BlogAdmin from './pages/admin/blog/index.jsx'
 import "./assets/css/responsive.css"
 import ForgotPassword from './pages/user/forgotpassword/index.jsx'
 import { ScrollRestoration } from 'react-router-dom'
+import ScrollToTop from './provider/scroolToTop.jsx'
 
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
   productsApi.getAllProduct()
   return (
     <>
-    <ScroolToTop/>
+ <ScrollToTop />
       <div className="storepage">
         <Routes>
 
@@ -115,7 +116,7 @@ function App() {
 
 
       </div>
-
+    
 
     </>
   )
