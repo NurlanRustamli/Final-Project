@@ -36,7 +36,7 @@ function Register() {
     //         .then(res => {
     //             if (emailExists) {
     //                 alert("This mail has already registered")
-                   
+
     //             }else{
     //                 usersApi.registerUser({
     //                     fullName: fullName.current.value,
@@ -60,43 +60,43 @@ function Register() {
     // }
 
     const registerUser = async (e) => {
-    e.preventDefault();
-    
-    try {
-        const loginFormData = new FormData();
-        loginFormData.append("file", file);
-        loginFormData.append("upload_preset", cloudPreset);
+        e.preventDefault();
 
-        const uploadResponse = await axios.post(`${cloudApi}/${cloudName}/upload`, loginFormData);
-        console.log(uploadResponse)
+        try {
+            const loginFormData = new FormData();
+            loginFormData.append("file", file);
+            loginFormData.append("upload_preset", cloudPreset);
 
-        const emailExists = await usersApi.checkEmail(email.current.value);
+            const uploadResponse = await axios.post(`${cloudApi}/${cloudName}/upload`, loginFormData);
+            console.log(uploadResponse)
 
-        if (emailExists) {
-            alert("This email has already been registered");
-        } else {
-            const registerResponse = await usersApi.registerUser({
-                fullName: fullName.current.value,
-                email: email.current.value,
-                password: password.current.value,
-                avatar: uploadResponse.data.url
-            });
+            const emailExists = await usersApi.checkEmail(email.current.value);
 
-            if (registerResponse.status === 201) {
-                alert("Registration Completed");
-                fullName.current.value = "";
-                email.current.value = "";
-                password.current.value = "";
-                nav("/login");
+            if (emailExists) {
+                alert("This email has already been registered");
             } else {
-                alert(registerResponse.statusText);
+                const registerResponse = await usersApi.registerUser({
+                    fullName: fullName.current.value,
+                    email: email.current.value,
+                    password: password.current.value,
+                    avatar: uploadResponse.data.url
+                });
+
+                if (registerResponse.status === 201) {
+                    alert("Registration Completed");
+                    fullName.current.value = "";
+                    email.current.value = "";
+                    password.current.value = "";
+                    nav("/login");
+                } else {
+                    alert(registerResponse.statusText);
+                }
             }
+        } catch (error) {
+            console.error(error);
+            alert("An error occurred during registration. Please try again.");
         }
-    } catch (error) {
-        console.error(error);
-        alert("An error occurred during registration. Please try again.");
-    }
-};
+    };
 
     return (
         <section id='login'>
@@ -129,23 +129,27 @@ function Register() {
                             </div>
 
 
-                            <div id='password' style={{ width: "100%" }}>
+                            <div id='password'style={{width:"100%"}}>
                                 <label htmlFor="">Password:</label>
-                                <input type={eyeData ?  "text":"password"} placeholder='Your Password ....' onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} ref={password} />
-                                {eyeData ?
-                                    <div id='regEye' onClick={() => setEyeData(true)}><FaRegEyeSlash /></div>:
-                                    <div id='regEye' onClick={() => setEyeData(false)}><FaRegEye /></div> 
+                                <br />
+                                <div>
+                                    <input type={eyeData ? "text" : "password"} placeholder='Your Password ....' onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} />
+                                    {eyeData ?
+                                        <div id='regeye' onClick={() => setEyeData(false)}><FaRegEye /></div> :
+                                        <div id='regeye' onClick={() => setEyeData(true)}><FaRegEyeSlash /></div>
 
-                                }
+                                    }
+                                </div>
+
                             </div>
 
                             <br />
                             <div style={{ width: "100%" }}>
-                            <label htmlFor="">Avatar:</label>
-                            <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+                                <label htmlFor="">Avatar:</label>
+                                <input type="file" onChange={(e) => setFile(e.target.files[0])} />
                             </div>
 
-                          
+
                             <div className="sign d-flex justify-content-between align-items-center">
                                 <div className="register">
                                     <Link to="/login">Login</Link>
