@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import Sidebar from '../../../components/user/sidebarFilter'
 import { productsApi } from '../../../services/base'
 import Products from '../../../components/user/products'
@@ -7,18 +7,20 @@ function ProductsPage() {
   const [products, setProducts] = useState([])
   const [sortedData, setSortedData] = useState([])
   const [price, setPrice] = useState(100)
+  const [reducerValue, forcedUpdate] = useReducer(x=>x+1,0)
 
   useEffect(() => {
     productsApi.getAllProduct().then(data => {
       setProducts(data)
       setSortedData(data)
     })
-  }, [])
+  }, [reducerValue])
 
   const handlePriceChange = (value) => {
     setPrice(value)
     const filteredProducts = products.filter(product => product.discountPrice <= value)
     setSortedData(filteredProducts)
+    forcedUpdate()
   }
 
   const sortProducts = (e) => {
@@ -33,6 +35,7 @@ function ProductsPage() {
       sortedArray.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase()))
     }
     setSortedData(sortedArray)
+    forcedUpdate()
   }
 
   return (

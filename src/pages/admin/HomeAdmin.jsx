@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import 
 { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill}
  from 'react-icons/bs'
@@ -11,6 +11,8 @@ function HomeAdmin() {
   const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const [reducerValue, forcedUpdate] = useReducer(x=>x+1,0)
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -42,7 +44,7 @@ function HomeAdmin() {
     fetchProducts();
     fetchUsers();
     fetchBlogs()
-  }, []);
+  }, [reducerValue]);
 
     const data = [
         {

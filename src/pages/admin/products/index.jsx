@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
 import { blogsApi, productsApi } from '../../../services/base';
 import "./style.css"
 import { IoIosRemoveCircle } from 'react-icons/io';
@@ -24,6 +24,8 @@ function Products() {
   const prTime = useRef(null)
   const prId = useRef(null)
   const pr = useRef(null)
+  const [reducerValue, forcedUpdate] = useReducer(x=>x+1,0)
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -32,9 +34,10 @@ function Products() {
       } catch (error) {
         console.error('Error fetching products:', error);
       }
+      forcedUpdate()
     };
     fetchProducts()
-  })
+  },[reducerValue])
 
   const addProduct = async (e) => {
     e.preventDefault()
@@ -50,10 +53,9 @@ function Products() {
       count: parseFloat(prCount.current.value),
       id: prId.current.value
 
-    }); console.log(productAddResponse.status)
-    // if (productAddResponse.status ===) {
+    });
+    forcedUpdate()
 
-    // }
   }
   const handleEditClick = (id, type) => {
     if (type === 'discount') {
@@ -62,7 +64,7 @@ function Products() {
       newPreviousModal.style.display = "block";
     }
     setItemId(id)
-    console.log('Edit clicked for item with id:', id);
+    forcedUpdate()
   };
   const refreshDiscountPrice = async (e) => {
     e.preventDefault()
@@ -74,6 +76,7 @@ function Products() {
       console.error('Error updating product discount', error);
       throw error;
     }
+    forcedUpdate()
 
   }
   const refreshPreviousPrice =async (e) => {
@@ -86,6 +89,7 @@ function Products() {
       console.error('Error updating product previous', error);
       throw error;
     }
+    forcedUpdate()
 
   }
 
@@ -225,7 +229,7 @@ function Products() {
             </div>
             <br />
             <button type='submit'>Add</button>
-            <button onClick={() => { addModal.style.display = "none" }}>Close</button>
+            <div onClick={() => { addModal.style.display = "none" }}>Close</div>
           </form>
         </div>
       </div >

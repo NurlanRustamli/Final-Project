@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
 import { blogsApi, productsApi } from '../../../services/base';
 import { IoIosRemoveCircle } from 'react-icons/io';
 
@@ -13,7 +13,9 @@ function BlogAdmin() {
   const bDesc1 = useRef(null)
   const bType = useRef(null)
   const bDate = useRef(null)
-  const bId = useRef(null)
+  const bId = useRef(null)  
+  const [reducerValue, forcedUpdate] = useReducer(x=>x+1,0)
+
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -22,9 +24,10 @@ function BlogAdmin() {
       } catch (error) {
         console.error('Error fetching products:', error);
       }
+      forcedUpdate()
     };
     fetchBlogs()
-  })
+  },[reducerValue])
 
   const addBlog = async (e)=> {
     e.preventDefault()
@@ -36,11 +39,11 @@ function BlogAdmin() {
       desc1: bDesc1.current.value,
       date: bDate.current.value,
       id:bId.current.value
- 
   });console.log(blogAddResponse.status)
   // if (productAddResponse.status ===) {
     
-  // }
+ forcedUpdate()
+ // }
   }
   return (
     <main className='main-container' style={{ width: "100%" }}>
@@ -115,7 +118,7 @@ function BlogAdmin() {
             </div>
             <br />
             <button type='submit'>Add</button>
-            <button onClick={()=>{addModal.style.display = "none"}}>Close</button>
+            <div onClick={()=>{addModal.style.display = "none"}}>Close</div>
           </form>
         </div>
       </div >

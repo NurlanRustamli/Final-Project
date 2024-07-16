@@ -5,6 +5,7 @@ import CommentsSection from '../commentsSection';
 
 function Comments(props) {
     const { isLogin } = useSelector(state => state)
+    const [handle,setHandle] =useState(false)
     const productId = props.productId
     const product = props.product
     const userName = props.userName
@@ -32,6 +33,7 @@ function Comments(props) {
             rating: rating,
             username: isLogin ? userName : name
         };
+        setHandle(!handle)
        
         commentsApi.postComment(commentPost)
             .then(response => {
@@ -48,14 +50,15 @@ function Comments(props) {
                 // Handle error (e.g., show error message)
             });
     };
-    console.log(rating)
-    const fetchComments = () => {
-        commentsApi.getComment()
-            .then(res => res.data)
-            .then(data => {
-                setAllComments(data);
-                computeRating(data);
-            });
+    const fetchComments = async () => {
+        try {
+            const response = await commentsApi.getComment();
+            const data = response.data;
+            setAllComments(data);
+            computeRating(data);
+        } catch (error) {
+            console.error('Error fetching comments', error);
+        }
     };
     const computeRating = (comments) => {
         const relevantComments = comments.filter(comment => comment.productId === productId);
@@ -73,7 +76,7 @@ function Comments(props) {
     useEffect(() => {
         fetchComments();
 
-    }, [comment, rating]);
+    }, [handle]);
 
 
 
@@ -122,10 +125,9 @@ function Comments(props) {
 
                 </div>
                 <div className="row">
-                <h2>Total Rating: {totalRating}</h2>
                 </div>
             </div>
-            <CommentsSection allComments={allComments} productId={productId} />
+            <CommentsSection allComments={allComments} product={product} productId={productId} />
 
         </section>
     )

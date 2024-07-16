@@ -64,7 +64,7 @@ function Login() {
                 <label htmlFor="">Password:</label>
                 <br />
                 <div id='password'>
-                  <input type={eyeData ? "password" : "text"} placeholder='Your Password ....' onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} />
+                  <input type={eyeData ?   "text":"password"} placeholder='Your Password ....' onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} />
                   {eyeData ?
                     <div id='eye' onClick={() => setEyeData(false)}><FaRegEye /></div> :
                     <div id='eye' onClick={() => setEyeData(true)}><FaRegEyeSlash /></div>

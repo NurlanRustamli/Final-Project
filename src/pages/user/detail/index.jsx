@@ -51,7 +51,6 @@ function Detail() {
           <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12">
             <h1>{product.name}</h1>
             <div className="detail-info">
-              <h3>Rating: <span>{product.rating}/5</span></h3>
               <div className="detail-price">
                 <h3>Discount Price: <span>{product.discountPrice}$</span></h3>
                 <h5>Previous Price: <span>{product.previousPrice}$</span></h5>

@@ -39,9 +39,9 @@ function Contact() {
             <p>Hello,Pleease Contact Us!</p>
           </div>
         </div>
-        <div className="row justify-content-center">
+        <div className="row justify-content-center" sty>
           <div className="col-lg-3 col-xl-3 col-md-6 col-sm-12">
-            <div className="contact-box" style={{width:"100%"}}>
+            <div className="contact-box" style={{width:"98%"}}>
               <div className="icon-out"><div className="icon"><MdAlternateEmail /></div></div>
               <div className="conheading">
                 <h3>Email</h3>
@@ -51,7 +51,7 @@ function Contact() {
             </div>
           </div>
           <div className="col-lg-3 col-xl-3 col-md-6 col-sm-12">
-            <div className="contact-box" style={{width:"100%"}}>
+            <div className="contact-box" style={{width:"98%"}}>
               <div className="icon-out"><div className="icon"><FaLocationCrosshairs /></div></div>
               <div className="conheading">
                 <h3>Location</h3>
@@ -61,7 +61,7 @@ function Contact() {
             </div>
           </div>
           <div className="col-lg-3 col-xl-3 col-md-6 col-sm-12">
-            <div className="contact-box" style={{width:"100%"}}>
+            <div className="contact-box" style={{width:"98%"}}>
               <div className="icon-out"><div className="icon"><MdOutlinePhoneAndroid /></div></div>
               <div className="conheading">
                 <h3>Phone Number</h3>

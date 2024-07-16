@@ -131,7 +131,7 @@ function Register() {
 
                             <div id='password' style={{ width: "100%" }}>
                                 <label htmlFor="">Password:</label>
-                                <input type={eyeData ? "password" : "text"} placeholder='Your Password ....' onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} ref={password} />
+                                <input type={eyeData ?  "text":"password"} placeholder='Your Password ....' onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} ref={password} />
                                 {eyeData ?
                                     <div id='regEye' onClick={() => setEyeData(true)}><FaRegEyeSlash /></div>:
                                     <div id='regEye' onClick={() => setEyeData(false)}><FaRegEye /></div> 

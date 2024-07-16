@@ -61,7 +61,7 @@ function ForgotPassword() {
                                 <label htmlFor="">New Password:</label>
                                 <br />
                                 <div id='password'>
-                                    <input type={eyeData ? "password" : "text"} placeholder='Your Password ....' onChange={(e) => setNewPassword(e.target.value)} />
+                                    <input type={eyeData ?  "text":"password"} placeholder='Your Password ....' onChange={(e) => setNewPassword(e.target.value)} />
                                     {eyeData ?
                                         <div id='eye' onClick={() => setEyeData(false)}><FaRegEye /></div> :
                                         <div id='eye' onClick={() => setEyeData(true)}><FaRegEyeSlash /></div>
@@ -76,7 +76,10 @@ function ForgotPassword() {
                                 <div className="register" onClick={scroolToTop()}>
                                     <Link to="/register">Register</Link>
                                 </div>
-                                <button type="submit" id='submit' >Sign In</button>
+                                <div className="register" onClick={scroolToTop()}>
+                                    <Link to="/login">Login</Link>
+                                </div>
+                                <button type="submit" id='submit' >Submit</button>
 
                             </div>
                             <br />

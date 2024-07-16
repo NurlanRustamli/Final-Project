@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import { usersApi } from '../../../services/base';
 import { IoIosRemoveCircle } from 'react-icons/io';
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const [reducerValue, forcedUpdate] = useReducer(x=>x+1,0)
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -13,9 +15,11 @@ function Users() {
       } catch (error) {
         console.error('Error fetching products:', error);
       }
+      forcedUpdate()
     };
     fetchUsers()
-  })
+
+  },[reducerValue])
   return (
     <main className='main-container' style={{ width: "100%" }}>
       <div className='main-title'>

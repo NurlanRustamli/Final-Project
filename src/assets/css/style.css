@@ -391,6 +391,8 @@ a:hover {
 
     img {
         transition: .3s all ease;
+        height: 300px;
+
     }
 }
 

@@ -48,7 +48,7 @@ function Types() {
                         </div></Link>
                     </div>
 
-                    <div class="fif-product-out "><Link to="/producst/snack">
+                    <div class="fif-product-out "><Link to="/products/snack">
                         <div class="fif-product text-center" style={{backgroundColor: "rgb(236,240,255)"}}>
                             <div class="fif-pr">
                                 <i class="fa-solid fa-cookie-bite"></i>

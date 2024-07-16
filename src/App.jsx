@@ -10,7 +10,7 @@ import Products from './pages/admin/products'
 import Users from './pages/admin/users'
 import Search from './pages/user/search'
 import Login from './pages/user/login'
-import { Route, Routes } from 'react-router'
+import { Route, Router, Routes } from 'react-router'
 import { productsApi } from './services/base.js'
 import Help from './pages/user/help/index.jsx'
 import './index.css'
@@ -48,66 +48,75 @@ import HomeAdmin from './pages/admin/HomeAdmin.jsx'
 import BlogAdmin from './pages/admin/blog/index.jsx'
 import "./assets/css/responsive.css"
 import ForgotPassword from './pages/user/forgotpassword/index.jsx'
+import { ScrollRestoration } from 'react-router-dom'
 
 
 function App() {
   const { isLogin, userData } = useSelector(state => state)
   productsApi.getAllProduct()
   return (
-    <>  
-    <ScroolToTop />
-      <Routes>
-        <Route path='/' element={<UserLayout />}>
-          <Route element={<Home />} index />
-          <Route element={<Detail />} path='product/:id' />
-          <Route element={<Search />} path='search/:name' />
-          <Route element={<Help />} path='help' />
-          <Route element={<Contact />} path='contact' />
-          <Route element={<Cart />} path='cart' />
-          <Route element={<Favorite />} path='favorite' />
-          <Route element={<Login />} path='login' />
-          <Route element={<ForgotPassword />} path='forgot' />
-          <Route element={<Register />} path='register' />
-          <Route element={<Blog />} path='blog' />
-          <Route element={<ProductsPage />} path='/products' />
-          <Route element={<Terms />} path='/terms' />
-          <Route element={<AboutUs />} path='about' />
-          <Route element={<Dairy />} path='products/dairy' />
-          <Route element={<Snack />} path='products/snack' />
-          <Route element={<Vegetables />} path='products/vegetables' />
-          <Route element={<Fruits />} path='products/fruits' />
-          <Route element={<Bakery />} path='products/bakery' />
-          <Route element={<Juice />} path='products/juice' />
-          <Route element={<OneKg />} path='products/onekg' />
-          <Route element={<TwoKg />} path='products/twokg' />
-          <Route element={<ThreeKg />} path='products/threekg' />
-          <Route element={<FourKg />} path='products/fourkg' />
-          <Route element={<FiveKg />} path='products/fivekg' />
-          <Route element={<SixKg />} path='products/sixkg' />
-          <Route element={<SevenKg />} path='products/sevenkg' />
-          <Route element={<EightKg />} path='products/eightkg' />
-          <Route element={<NineKg />} path='products/ninekg' />
-          <Route element={<BlogDetailPage />} path='blog/:id' />
+    <>
+    <ScroolToTop/>
+      <div className="storepage">
+        <Routes>
+
+
+          <Route path='/' element={<UserLayout />}>
+            <Route element={<Home />} index />
+            <Route element={<Detail />} path='product/:id' />
+            <Route element={<Search />} path='search/:name' />
+            <Route element={<Help />} path='help' />
+            <Route element={<Contact />} path='contact' />
+            <Route element={<Cart />} path='cart' />
+            <Route element={<Favorite />} path='favorite' />
+            <Route element={<Login />} path='login' />
+            <Route element={<ForgotPassword />} path='forgot' />
+            <Route element={<Register />} path='register' />
+            <Route element={<Blog />} path='blog' />
+            <Route element={<ProductsPage />} path='/products' />
+            <Route element={<Terms />} path='/terms' />
+            <Route element={<AboutUs />} path='about' />
+            <Route element={<Dairy />} path='products/dairy' />
+            <Route element={<Snack />} path='products/snack' />
+            <Route element={<Vegetables />} path='products/vegetables' />
+            <Route element={<Fruits />} path='products/fruits' />
+            <Route element={<Bakery />} path='products/bakery' />
+            <Route element={<Juice />} path='products/juice' />
+            <Route element={<OneKg />} path='products/onekg' />
+            <Route element={<TwoKg />} path='products/twokg' />
+            <Route element={<ThreeKg />} path='products/threekg' />
+            <Route element={<FourKg />} path='products/fourkg' />
+            <Route element={<FiveKg />} path='products/fivekg' />
+            <Route element={<SixKg />} path='products/sixkg' />
+            <Route element={<SevenKg />} path='products/sevenkg' />
+            <Route element={<EightKg />} path='products/eightkg' />
+            <Route element={<NineKg />} path='products/ninekg' />
+            <Route element={<BlogDetailPage />} path='blog/:id' />
+            {
+              isLogin ? <Route element={<Checkout />} path='/checkout' /> : null
+            }
+            {
+              isLogin ? <Route element={<Successful />} path='/successful' /> : null
+            }
+            {
+              isLogin ? <Route element={<Profile />} path='/profile' /> : null
+            }
+            <Route element={<NotFound />} path='*' />
+          </Route>
           {
-            isLogin ? <Route element={<Checkout />} path='/checkout' /> : null
+            userData.email === "admin@grabit.az" ? <Route path='/admin' element={<Admin />}>
+              <Route element={<HomeAdmin />} index />
+              <Route element={<Products />} path='products' />
+              <Route element={<Users />} path='users' />
+              <Route element={<BlogAdmin />} path='blog' />
+            </Route> : null
           }
-          {
-            isLogin ? <Route element={<Successful />} path='/successful' /> : null
-          }
-          {
-            isLogin ? <Route element={<Profile />} path='/profile' /> : null
-          }
-          <Route element={<NotFound />} path='*' />
-        </Route>
-        {
-          userData.email === "admin@grabit.az" ? <Route path='/admin' element={<Admin />}>
-            <Route element={<HomeAdmin />} index />
-            <Route element={<Products />} path='products' />
-            <Route element={<Users />} path='users' />
-            <Route element={<BlogAdmin />} path='blog' />
-          </Route> : null
-        }
-      </Routes>
+        </Routes>
+
+
+      </div>
+
+
     </>
   )
 }
