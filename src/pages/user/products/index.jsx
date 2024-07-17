@@ -7,55 +7,33 @@ function ProductsPage() {
   const [products, setProducts] = useState([])
   const [sortedData, setSortedData] = useState([])
   const [price, setPrice] = useState(100)
-  const [sortOption, setSortOption] = useState('')
 
   useEffect(() => {
-    fetchProducts()
-  }, [])
-
-  const fetchProducts = async () => {
-    try {
-      const data = await productsApi.getAllProduct()
+    productsApi.getAllProduct().then(data => {
       setProducts(data)
       setSortedData(data)
-    } catch (error) {
-      console.error('Error fetching products:', error)
-    }
+    })
+  }, [])
+
+  const handlePriceChange = (value) => {
+    setPrice(value)
+    const filteredProducts = products.filter(product => product.discountPrice <= value)
+    setSortedData(filteredProducts)
   }
 
-  const handlePriceChange = useCallback((value) => {
-    setPrice(value)
-    filterAndSortProducts(value, sortOption)
-  }, [sortOption])
-
-  const sortProducts = useCallback((e) => {
-    const newSortOption = e.target.value
-    setSortOption(newSortOption)
-    filterAndSortProducts(price, newSortOption)
-  }, [price])
-
-  const filterAndSortProducts = useCallback((priceValue, sortValue) => {
-    let filteredProducts = products.filter(product => product.discountPrice <= priceValue)
-
-    switch (sortValue) {
-      case "1":
-        filteredProducts.sort((a, b) => a.discountPrice - b.discountPrice)
-        break
-      case "2":
-        filteredProducts.sort((a, b) => b.discountPrice - a.discountPrice)
-        break
-      case "3":
-        filteredProducts.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
-        break
-      case "4":
-        filteredProducts.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase()))
-        break
-      default:
-        break
+  const sortProducts = (e) => {
+    let sortedArray = [...sortedData]
+    if (e.target.value === "1") {
+      sortedArray.sort((a, b) => a.discountPrice - b.discountPrice)
+    } else if (e.target.value === "2") {
+      sortedArray.sort((a, b) => b.discountPrice - a.discountPrice)
+    } else if (e.target.value === "3") {
+      sortedArray.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+    } else if (e.target.value === "4") {
+      sortedArray.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase()))
     }
-
-    setSortedData(filteredProducts)
-  }, [products])
+    setSortedData(sortedArray)
+  }
 
   return (
     <div id='types'>
@@ -66,7 +44,7 @@ function ProductsPage() {
             <p className='Subheading text-center'>Shop online for our products and get free shipping!</p>
           </div>
           <div className="sorting">
-            <select name="" id="productssort" onChange={sortProducts} value={sortOption}>
+            <select name="" id="productssort" onChange={sortProducts} >
               <option value="">Sort by</option>
               <option value="1">Low to High</option>
               <option value="2">High to Low</option>
